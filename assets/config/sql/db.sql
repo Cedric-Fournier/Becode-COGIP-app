@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 28, 2018 at 10:28 AM
+-- Generation Time: Aug 28, 2018 at 11:18 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -21,10 +21,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bill` (
-  `id` tinyint(3) UNSIGNED NOT NULL,
-  `date` date DEFAULT NULL,
-  `object` varchar(30) DEFAULT NULL,
-  `company` varchar(50) DEFAULT NULL
+  `number` tinyint(10) UNSIGNED NOT NULL,
+  `date` date NOT NULL,
+  `object` varchar(30) NOT NULL,
+  `company` tinyint(3) UNSIGNED NOT NULL,
+  `person` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -35,14 +36,14 @@ CREATE TABLE `bill` (
 
 CREATE TABLE `company` (
   `id` tinyint(3) UNSIGNED NOT NULL,
-  `name` varchar(30) DEFAULT NULL,
-  `street` varchar(50) DEFAULT NULL,
-  `number` tinyint(5) UNSIGNED DEFAULT NULL,
-  `zip` varchar(10) DEFAULT NULL,
-  `city` varchar(30) DEFAULT NULL,
-  `country` varchar(30) DEFAULT NULL,
-  `VAT` int(12) UNSIGNED DEFAULT NULL,
-  `phone` int(20) UNSIGNED DEFAULT NULL
+  `name` varchar(30) NOT NULL,
+  `street` varchar(50) NOT NULL,
+  `number` varchar(5) NOT NULL,
+  `zip` varchar(10) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `country` varchar(30) NOT NULL,
+  `VAT` varchar(12) NOT NULL,
+  `phone` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -53,10 +54,11 @@ CREATE TABLE `company` (
 
 CREATE TABLE `person` (
   `id` tinyint(3) UNSIGNED NOT NULL,
-  `name` varchar(30) DEFAULT NULL,
-  `lastname` varchar(30) DEFAULT NULL,
-  `phone` int(20) UNSIGNED DEFAULT NULL,
-  `email` varchar(30) DEFAULT NULL
+  `name` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `company` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -67,7 +69,8 @@ CREATE TABLE `person` (
 
 CREATE TABLE `type` (
   `id` tinyint(3) UNSIGNED NOT NULL,
-  `type` varchar(30) DEFAULT NULL
+  `type` varchar(30) DEFAULT NULL,
+  `company` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -78,7 +81,9 @@ CREATE TABLE `type` (
 -- Indexes for table `bill`
 --
 ALTER TABLE `bill`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`number`),
+  ADD KEY `company` (`company`),
+  ADD KEY `person` (`person`);
 
 --
 -- Indexes for table `company`
@@ -90,13 +95,15 @@ ALTER TABLE `company`
 -- Indexes for table `person`
 --
 ALTER TABLE `person`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `company` (`company`);
 
 --
 -- Indexes for table `type`
 --
 ALTER TABLE `type`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `company` (`company`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -106,7 +113,7 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `number` tinyint(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -125,3 +132,26 @@ ALTER TABLE `person`
 --
 ALTER TABLE `type`
   MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bill`
+--
+ALTER TABLE `bill`
+  ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`company`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`person`) REFERENCES `person` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `person`
+--
+ALTER TABLE `person`
+  ADD CONSTRAINT `person_ibfk_1` FOREIGN KEY (`company`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `type`
+--
+ALTER TABLE `type`
+  ADD CONSTRAINT `type_ibfk_1` FOREIGN KEY (`company`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
