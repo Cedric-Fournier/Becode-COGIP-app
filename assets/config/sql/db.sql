@@ -51,7 +51,7 @@ CREATE TABLE `company` (
 -- Table structure for table `People`
 --
 
-CREATE TABLE `People` (
+CREATE TABLE `person` (
   `id` tinyint(3) UNSIGNED NOT NULL,
   `name` varchar(30) DEFAULT NULL,
   `lastname` varchar(30) DEFAULT NULL,
