@@ -1,6 +1,8 @@
 <?php
+try
+{
 // company
-$id=1;//variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
+    $id=$_GET['id'];//variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
     $sql="SELECT * from company where company.id = $id";
     include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
     $requete->execute();
@@ -19,6 +21,12 @@ $id=1;//variable de defaut pour le test remplacer par la variable qu'on va recup
     $requete->execute();
     $bill = $requete->fetchAll();
     $requete->closeCursor();
+}
+catch(Exception $e)
+    {
+        // En cas d'erreur, on affiche un message et on arrête tout
+            die('Erreur : '.$e->getMessage());
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +35,7 @@ $id=1;//variable de defaut pour le test remplacer par la variable qu'on va recup
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="http://localhost/COGIP-app/vendor/components/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/components/font-awesome/css/fontawesome.min.css">
 </head>

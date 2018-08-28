@@ -1,11 +1,19 @@
 <?php
     try
         {
-            if(isset($_POST['delete']))
+            if(isset($_POST['modifier']))
             {
                 $id=$_POST['id'];
-                $sql="DELETE from company where id = $id";
+                $sql="UPDATE company SET name=:name, street=:street, number=:number, zip=:zip, city=:city, country=:country, VAT=:VAT, phone=:phone where id = $id";
                 include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+                $requete->bindParam(":name", $_POST['name']);
+                $requete->bindParam(":street", $_POST['street']);
+                $requete->bindParam(":number", $_POST['number']);
+                $requete->bindParam(":zip", $_POST['zip']);
+                $requete->bindParam(":city", $_POST['city']);
+                $requete->bindParam(":country", $_POST['country']);
+                $requete->bindParam(":VAT", $_POST['VAT']);
+                $requete->bindParam(":phone", $_POST['phone']);
                 $requete->execute();
                 $requete->closeCursor();
             }else{
@@ -31,8 +39,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../vendor/components/font-awesome/css/fontawesome.min.css">
+    <script src="http://localhost/COGIP-app/vendor/components/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/components/font-awesome/css/fontawesome.min.css">
 </head>
 <body>
     <header></header>
@@ -47,10 +56,10 @@
             <label for="country">Le nom du pays : </label><input type="text" name="country" id="country" value="<?=$donnees['country']?>"><br>
             <label for="VAT">Le numéro de TVA : </label><input type="number" name="VAT" id="VAT" value="<?=$donnees['VAT']?>"><br>
             <label for="phone">Le numéro de téléphone : </label><input type="tel" name="phone" id="phone" value="<?=$donnees['phone']?>"><br>
-            <button type="submit" name="delete">delete</button>
+            <button type="submit" name="modifier">modifier la société</button>
         </form>
     </section>
     <footer></footer>
-    <script src="../../../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://localhost/COGIP-app/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
