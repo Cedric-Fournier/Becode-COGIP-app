@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 28, 2018 at 10:04 AM
+-- Generation Time: Aug 28, 2018 at 10:28 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `bill` (
   `id` tinyint(3) UNSIGNED NOT NULL,
   `date` date DEFAULT NULL,
-  `performance` date DEFAULT NULL,
+  `object` varchar(30) DEFAULT NULL,
   `company` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -48,7 +48,7 @@ CREATE TABLE `company` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `People`
+-- Table structure for table `person`
 --
 
 CREATE TABLE `person` (
@@ -87,9 +87,9 @@ ALTER TABLE `company`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `People`
+-- Indexes for table `person`
 --
-ALTER TABLE `People`
+ALTER TABLE `person`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -115,9 +115,9 @@ ALTER TABLE `company`
   MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `People`
+-- AUTO_INCREMENT for table `person`
 --
-ALTER TABLE `People`
+ALTER TABLE `person`
   MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
