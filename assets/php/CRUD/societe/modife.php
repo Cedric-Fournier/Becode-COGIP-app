@@ -16,8 +16,10 @@
                 $requete->bindParam(":phone", $_POST['phone']);
                 $requete->execute();
                 $requete->closeCursor();
+            }else{
+                $id=1; //variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
             }
-            $sql="SELECT * from company where id = 1";
+            $sql="SELECT * from company where id = $id";
             include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
             $requete->execute();
             $donnees = $requete->fetchAll();

@@ -1,6 +1,6 @@
 <?php
 // company
-$id=1;
+$id=1;//variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
     $sql="SELECT * from company where company.id = $id";
     include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
     $requete->execute();
