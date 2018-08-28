@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 28, 2018 at 09:56 AM
+-- Generation Time: Aug 28, 2018 at 10:04 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -23,7 +23,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `bill` (
   `id` tinyint(3) UNSIGNED NOT NULL,
   `date` date DEFAULT NULL,
-  `performance` date DEFAULT NULL
+  `performance` date DEFAULT NULL,
+  `company` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
