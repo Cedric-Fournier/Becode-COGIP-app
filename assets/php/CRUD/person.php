@@ -8,27 +8,27 @@
         }
     }
 
-    function displayPersonByID() {
+    function readPersonByID() {
         $requestSQL = "SELECT * FROM person ORDER BY id ASC";
     }
 
-    function displayPersonByFirstName() {
+    function readPersonByFirstName() {
         $requestSQL = "SELECT * FROM person ORDER BY firstname ASC";
     }
 
-    function displayPersonByLastName() {
+    function readPersonByLastName() {
         $requestSQL = "SELECT * FROM person ORDER BY lastname ASC";
     }
 
-    function displayPersonByPhone() {
+    function readPersonByPhone() {
         $requestSQL = "SELECT * FROM person ORDER BY phone ASC";
     }
 
-    function displayPersonByEmail() {
+    function readPersonByEmail() {
         $requestSQL = "SELECT * FROM person ORDER BY email ASC";
     }
 
-    function displayPersonByCompany() {
+    function readPersonByCompany() {
         $requestSQL = "SELECT * FROM person ORDER BY company ASC";
     }
 

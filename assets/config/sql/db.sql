@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 28 Août 2018 à 12:28
+-- Généré le :  Mer 29 Août 2018 à 09:09
 -- Version du serveur :  5.7.23-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.31-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -157,11 +157,11 @@ CREATE TABLE `type` (
 --
 
 INSERT INTO `type` (`id`, `type`, `company`) VALUES
-(1, 'Web developper', 1),
-(2, 'Vente de boisson', 2),
-(3, 'Restaurant', 5),
-(4, 'Construction', 6),
-(5, 'Web designer', 7);
+(1, 'client', 1),
+(2, 'fournisseur', 2),
+(3, 'client', 5),
+(4, 'fournisseur', 6),
+(5, 'client', 7);
 
 --
 -- Index pour les tables exportées
