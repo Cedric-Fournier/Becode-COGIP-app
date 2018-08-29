@@ -1,30 +1,36 @@
 <?php
-    include './assets/config/php/config.php';
-    try {
-        $host=$config['DB_HOST'];
-        $dbname=$config['DB_DATABASE'];
-        $conn= new PDO("mysql:host=$host;dbname=$dbname",$config['DB_USERNAME'],$config['DB_PASSWORD']);
-        //new PDO("mysql:host=$hostname;dbname=mysql", $username, $password);
-    }
-    catch(PDOException $e) {
-        echo "Error:".$e->getMessage();
-    }
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="vendor/components/jquery/jquery.min.js"></script>
-    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/components/font-awesome/css/fontawesome.min.css">
-</head>
-<body>
-    <header></header>
-    <section></section>
-    <footer></footer>
-    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+print_r($_SERVER);
+$request = $_SERVER['REQUEST_URI'];
+print_r($request);
+if(isset($request)){
+print_r($request);
+    $url = explode('/', $request);
+}
+
+
+switch ($request) {
+    case '/COGIP-app/' :
+        require __DIR__ . '/assets/pages/home.php';
+        break;
+    case 'home' :
+        require __DIR__ . '/assets/pages/home.php';
+        break;
+    default: 
+        require __DIR__ . '/assets/pages/404.php';
+        break;
+}
+
+
+// var_dump($url);
+//  if($url == ""){
+//  require 'assets/pages/home.php';
+//  }
+//  else{
+//     require 'assets/pages/404.php';
+// }
+ //elseif( ($url[0] == 'article') AND (!empty($url[1]))){
+//     $idArticle=$url[1];
+//     require 'article.php';
+// }else{
+//     require '404.php';
+// }
