@@ -28,9 +28,7 @@
                 
             </ul>
         </div>
+        </section>
         <?php
     include '/var/www/html/COGIP-app/assets/partials/footer.php';
     ?>
-<script src="<?=$url?>vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
-</html>

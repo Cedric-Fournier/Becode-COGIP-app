@@ -6,9 +6,8 @@ try
     $sql="SELECT company.*,type.type AS categorie from company,type where company.id = $id and company.type=type.id";
     include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
     $requete->execute();
-    $company = $requete->fetchAll();
+    $company = $requete->fetch();
     $requete->closeCursor();
-    $company=$company['0'];
 // person
     $sql="SELECT lastname,firstname from person where person.company = $id";
     include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
@@ -66,5 +65,3 @@ catch(Exception $e)
     <?php
     include '/var/www/html/COGIP-app/assets/partials/footer.php';
     ?>
-</body>
-</html>

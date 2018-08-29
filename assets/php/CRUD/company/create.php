@@ -62,5 +62,3 @@ catch(Exception $e)
     <?php
     include '/var/www/html/COGIP-app/assets/partials/footer.php';
     ?>
-</body>
-</html>

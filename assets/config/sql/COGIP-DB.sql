@@ -173,7 +173,7 @@ INSERT INTO `COGIP-DB`.`bill` (`number`, `date`, `object`, `company`, `person`) 
 INSERT INTO `COGIP-DB`.`bill` (`number`, `date`, `object`, `company`, `person`) VALUES (7, '2018-08-17', 'opération marketing', 2, 9);
 INSERT INTO `COGIP-DB`.`bill` (`number`, `date`, `object`, `company`, `person`) VALUES (8, '2018-08-21', 'joyeux noel', 2, 10);
 INSERT INTO `COGIP-DB`.`bill` (`number`, `date`, `object`, `company`, `person`) VALUES (9, '2018-08-29', 'assomption', 2, 11);
-INSERT INTO `COGIP-DB`.`bill` (`number`, `date`, `object`, `company`, `person`) VALUES (10, '2018-08-15', '3 pizza + 2 pates', 5, 12);
+INSERT INTO `COGIP-DB`.`bill` (`number`, `date`, `object`, `company`, `person`) VALUES (10, '2018-08-15', '3 pizza + 2 pates', 2, 12);
 INSERT INTO `COGIP-DB`.`bill` (`number`, `date`, `object`, `company`, `person`) VALUES (11, '2018-08-28', 'panier surprise Web Dev', 5, 13);
 INSERT INTO `COGIP-DB`.`bill` (`number`, `date`, `object`, `company`, `person`) VALUES (12, '2018-08-29', 'panier surprise coca-cola', 5, 14);
 INSERT INTO `COGIP-DB`.`bill` (`number`, `date`, `object`, `company`, `person`) VALUES (13, '2018-08-23', 'panier surprise BeCode', 5, 15);

@@ -14,9 +14,8 @@
             $sql="SELECT * from company where id = $id";
             include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
             $requete->execute();
-            $donnees = $requete->fetchAll();
+            $donnees = $requete->fetch();
             $requete->closeCursor();
-            $donnees=$donnees['0'];
             switch ($company['type']) {
                 case 1:
                 $checkType['1']="checked";
@@ -65,5 +64,3 @@
     <?php
     include '/var/www/html/COGIP-app/assets/partials/footer.php';
     ?>
-    </body>
-</html>
