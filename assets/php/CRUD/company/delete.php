@@ -9,7 +9,7 @@
                 $requete->execute();
                 $requete->closeCursor();
             }else{
-                $id=1; //variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
+                $id=$_GET['id']; //variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
             }
             $sql="SELECT * from company where id = $id";
             include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
@@ -17,6 +17,22 @@
             $donnees = $requete->fetchAll();
             $requete->closeCursor();
             $donnees=$donnees['0'];
+            switch ($company['type']) {
+                case 1:
+                $checkType['1']="checked";
+                $checkType['2']="";
+                    break;
+                
+                case 2:
+                $checkType['1']="";
+                $checkType['2']="checked";
+                    break;
+            }
+            $sql="SELECT type.* from type ";
+            include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+            $requete->execute();
+            $type = $requete->fetchAll();
+            $requete->closeCursor();
         }
     catch(Exception $e)
         {
@@ -38,6 +54,11 @@
             <label for="country">Le nom du pays : </label><input type="text" name="country" id="country" value="<?=$donnees['country']?>"><br>
             <label for="VAT">Le numéro de TVA : </label><input type="number" name="VAT" id="VAT" value="<?=$donnees['VAT']?>"><br>
             <label for="phone">Le numéro de téléphone : </label><input type="tel" name="phone" id="phone" value="<?=$donnees['phone']?>"><br>
+            Type de société : </label>
+            <?php foreach ($type as $key => $value) { ?>
+                <input type="radio" name="type" id="type<?=$value['id']?>" value='<?=$value['id']?>' <?=$checkType[$value['id']]?>><label for="type<?=$value['id']?>"><?=$value['type']?></label>
+                <?php } ?>
+            <br>
             <button type="submit" name="delete">delete</button>
         </form>
     </section>

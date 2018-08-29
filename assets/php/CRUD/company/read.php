@@ -2,8 +2,8 @@
 try
 {
 // company
-    $id=$_GET['id'];//variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
-    $sql="SELECT * from company where company.id = $id";
+    // $id=$_GET['id'];//variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
+    $sql="SELECT company.*,type.type AS categorie from company,type where company.id = $id and company.type=type.id";
     include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
     $requete->execute();
     $company = $requete->fetchAll();
@@ -35,10 +35,12 @@ catch(Exception $e)
         <div class="row">
             <div class="col-12 text-center title"><h1>désignation sociale de la société</h1></div>
             <div class="col-12 text-center"><?=$company['name']?></div>
-            <div class="col-8 text-center"><h1>l'adresse de la société</h1></div>
+            <div class="col-6 text-center"><h1>l'adresse de la société</h1></div>
             <div class="col-4 text-center"><h1>le pays</h1></div>
-            <div class="col-8 text-center"><?=($company['street']." ".$company['number'].", ".$company['zip']." ".$company['city'])?></div>
+            <div class="col-2 text-center"><h1>le type de société</h1></div>
+            <div class="col-6 text-center"><?=($company['street']." ".$company['number'].", ".$company['zip']." ".$company['city'])?></div>
             <div class="col-4 text-center"><?=$company['country']?></div>
+            <div class="col-2 text-center"><?=$company['categorie']?></div>
             <div class="col-12 text-center"><h1>le n° de téléphone</h1></div>
             <div class="col-12 text-center"><?=$company['phone']?></div>
             <div class="col-12 text-center"><h1>le n° de TVA</h1></div>
