@@ -29,19 +29,9 @@ catch(Exception $e)
     } 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="http://localhost/COGIP-app/vendor/components/jquery/jquery.min.js"></script>
-    <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/components/font-awesome/css/fontawesome.min.css">
-</head>
-<body>
-    <header></header>
+<?php
+    include '/var/www/html/COGIP-app/assets/partials/header.php';
+    ?>
     <section>
         <form action="#" method="post">
             <label for="name">La désignation sociale de la société : </label><input type="text" name="name" id="name"><br>
@@ -57,7 +47,8 @@ catch(Exception $e)
 
         <?=$message?>
     </section>
-    <footer></footer>
-    <script src="http://localhost/COGIP-app/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <?php
+    include '/var/www/html/COGIP-app/assets/partials/footer.php';
+    ?>
 </body>
 </html>

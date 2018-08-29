@@ -24,19 +24,9 @@
                 die('Erreur : '.$e->getMessage());
         } 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="http://localhost/COGIP-app/vendor/components/jquery/jquery.min.js"></script>
-    <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/components/font-awesome/css/fontawesome.min.css">
-</head>
-<body>
-    <header></header>
+<?php
+    include '/var/www/html/COGIP-app/assets/partials/header.php';
+    ?>
     <section>
         <form action="#" method="post">
             <label for="id">L'id de la société : </label><input type="number" name="id" id="id" value="1"><br>
@@ -51,7 +41,8 @@
             <button type="submit" name="delete">delete</button>
         </form>
     </section>
-    <footer></footer>
-    <script src="http://localhost/COGIP-app/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
+    <?php
+    include '/var/www/html/COGIP-app/assets/partials/footer.php';
+    ?>
+    </body>
 </html>
