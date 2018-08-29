@@ -1,5 +1,15 @@
 <?php
+function sqlPrepare(){
+  $selectionPrepare= "SELECT * FROM bill where number=:number";
+  return $selectionPrepare;
+};
+function sqlJoincompany(){
+  $selCompany = "SELECT bill, company.name
+  FROM company
+  INNER JOIN bill ON bill.company=company.id";
 
+  return $selCompany;
+};
 try {
   $bdd= new PDO('mysql:host=localhost;dbname=COGIP-DB;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
@@ -7,8 +17,8 @@ catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
 
-//
-  $req = $bdd->prepare("SELECT * FROM bill where number=:number");
+
+  $req = $bdd->prepare(sqlPrepare());
   $id=intval($_GET['number']);
   $req->bindParam(":number", $id);
 
@@ -31,25 +41,8 @@ catch (Exception $e) {
     "<td>".$data['person'] . "</td>".
     "</tr>"
     );
-  // while($data= $req ->fetchAll()){
-  //   echo "<tr>" .
-  //     "<td>" . htmlspecialchars($data['number']). "</td>".
-  //     "<td>" . htmlspecialchars($data['date']). "</td>".
-  //     "<td>" . htmlspecialchars($data['object']). "</td>".
-  //     "<td>" . htmlspecialchars($data['company']). "</td>".
-  //     "<td>" . htmlspecialchars($data['person']). "</td>".
-  //     "</tr>"
-  //     ;
-  //
-  // };
-
 
   $req->closeCursor();
-
-
-
-
-
 
  ?>
 
