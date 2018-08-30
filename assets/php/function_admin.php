@@ -33,29 +33,4 @@
         return $error;
     }
 
-    function errorMessage($postValue, $sanitizeType, $required) {
-        $error = "";
-        if(empty($postValue) && $required) {
-            $error = "This field is required";
-        } else {
-            switch ($sanitizeType) {
-                case "string":
-                    $error = filterSanitizeString($postValue);
-                    break;
-                case "email":
-                    $error = filterSanitizeAndValidateEmail($postValue);
-                    break;
-            
-                case "number":
-                    $error = filterSanitizeNumberInt(inputFilter($postValue));
-                    break;
-                
-                default:
-                    $error = filterSanitizeString(inputFilter($postValue));
-                    break;
-            }
-        }
-        return $error;
-    }
-
 ?>

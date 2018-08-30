@@ -1,12 +1,19 @@
 <?php
-    include './assets/config/php/config.php';
-    try {
-        $host=$config['DB_HOST'];
-        $dbname=$config['DB_DATABASE'];
-        $conn= new PDO("mysql:host=$host;dbname=$dbname",$config['DB_USERNAME'],$config['DB_PASSWORD']);
-        //new PDO("mysql:host=$hostname;dbname=mysql", $username, $password);
+
+    switch ($_GET["page"]) {
+        case 'directory':
+            require "controllers/controller.php";
+            directoryPage();
+            break;
+
+        case 'detailPerson':
+            require "controllers/controller.php";
+            detailPersonPage();
+            break;
+                    
+        default:            
+            echo "Home page";
+            break;
     }
-    catch(PDOException $e) {
-        echo "Error:".$e->getMessage();
-    }
+
 ?>
