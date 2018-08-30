@@ -1,14 +1,9 @@
 <!-- <?php include '../partials/header.php' ?> -->
 
 <?php
-try {
-  $bdd= new PDO('mysql:host=localhost;dbname=COGIP-DB;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
+require "../config/php/config.php";
 
-$req = $bdd->query("SELECT * FROM bill ORDER BY date DESC");
+$req = $pdo->query("SELECT * FROM bill ORDER BY date DESC");
 echo "
 <h1>Factures</h1>
 <table border='1'>

@@ -4,15 +4,11 @@ function sqlPrepare(){
   return $selectionPrepare;
 };
 
-try {
-  $bdd= new PDO('mysql:host=localhost;dbname=COGIP-DB;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
+require "../config/php/config.php";
 
 
-  $req = $bdd->prepare(sqlPrepare());
+
+  $req = $pdo->prepare(sqlPrepare());
   $id=intval($_GET['number']);
   $req->bindParam(":number", $id);
 
