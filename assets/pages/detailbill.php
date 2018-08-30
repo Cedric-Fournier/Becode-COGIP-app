@@ -1,15 +1,9 @@
 <?php
 function sqlPrepare(){
-  $selectionPrepare= "SELECT * FROM bill where number=:number";
+  $selectionPrepare= "SELECT bill.*,company.name,person.lastname, person.firstname FROM bill,company,person WHERE bill.number=:number AND bill.company=company.id AND bill.person=person.id";
   return $selectionPrepare;
 };
-function sqlJoincompany(){
-  $selCompany = "SELECT bill, company.name
-  FROM company
-  INNER JOIN bill ON bill.company=company.id";
 
-  return $selCompany;
-};
 try {
   $bdd= new PDO('mysql:host=localhost;dbname=COGIP-DB;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
@@ -31,14 +25,16 @@ catch (Exception $e) {
   <th>Date</th>
   <th>sujet</th>
   <th>Société</th>
-  <th>Personne</th>
+  <th>Personne en charge</th>
+  <th>Personne en charge</th>
   </tr>";
   echo ( "<tr>".
     "<td>".$data['number'] . "</td>".
     "<td>".$data['date'] . "</td>".
     "<td>".$data['object'] . "</td>".
-    "<td>".$data['company'] . "</td>".
-    "<td>".$data['person'] . "</td>".
+    "<td>".$data['name'] . "</td>".
+    "<td>".$data['firstname'] . "</td>".
+    "<td>".$data['lastname'] . "</td>".
     "</tr>"
     );
 
