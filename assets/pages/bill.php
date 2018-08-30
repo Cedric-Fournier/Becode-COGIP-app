@@ -8,7 +8,7 @@ catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
 
-$req = $bdd->query("SELECT * FROM bill ORDER BY 'date' ASC");
+$req = $bdd->query("SELECT * FROM bill ORDER BY date DESC");
 echo "
 <h1>Factures</h1>
 <table border='1'>
