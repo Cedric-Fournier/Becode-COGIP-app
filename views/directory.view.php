@@ -1,13 +1,3 @@
-<?php
-
-    require "../config/php/config.php";
-    require "../php/CRUD/person.php";
-
-    $reponse = $pdo->prepare(readPersonByLastName());  
-    $reponse->execute();
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,5 +23,3 @@
     </section>
 </body>
 </html>
-    
-<?php $reponse->closeCursor();?>
