@@ -10,4 +10,3 @@
     <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/components/font-awesome/css/fontawesome.min.css">
 </head>
 <body>
-    <header></header>

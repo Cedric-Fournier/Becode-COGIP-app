@@ -28,7 +28,7 @@ catch(Exception $e)
     } 
 ?>
 <?php
-    include '/var/www/html/COGIP-app/assets/partials/header.php';
+    require 'views/partials/header.php';
     ?>
     <section>
         <div class="row">
@@ -63,5 +63,5 @@ catch(Exception $e)
         </div>
     </section>
     <?php
-    include '/var/www/html/COGIP-app/assets/partials/footer.php';
+    require 'views/partials/footer.php';
     ?>

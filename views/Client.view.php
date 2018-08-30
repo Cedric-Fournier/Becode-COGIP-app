@@ -16,7 +16,7 @@ catch(Exception $e)
         // En cas d'erreur, on affiche un message et on arrête tout
             die('Erreur : '.$e->getMessage());
     }
-    require 'assets/partials/header.php';
+    require 'views/partials/header.php';
 ?>
 <section>
 
@@ -32,5 +32,5 @@ catch(Exception $e)
     </div>
     </section>
     <?php
-require 'assets/partials/footer.php';
+require 'views/partials/footer.php';
 ?>

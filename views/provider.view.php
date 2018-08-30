@@ -16,7 +16,7 @@ catch(Exception $e)
         // En cas d'erreur, on affiche un message et on arrête tout
             die('Erreur : '.$e->getMessage());
     }
-include '/var/www/html/COGIP-app/assets/partials/header.php';
+    require 'views/partials/header.php';
 ?>
 <section>
 
@@ -32,5 +32,5 @@ include '/var/www/html/COGIP-app/assets/partials/header.php';
     </div>
     </section>
     <?php
-include '/var/www/html/COGIP-app/assets/partials/footer.php';
+require 'views/partials/footer.php';
 ?>

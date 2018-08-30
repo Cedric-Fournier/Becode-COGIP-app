@@ -40,7 +40,7 @@
         } 
 ?>
 <?php
-    include '/var/www/html/COGIP-app/assets/partials/header.php';
+    require 'views/partials/header.php';
     ?>
     <section>
         <form action="#" method="post">
@@ -62,5 +62,5 @@
         </form>
     </section>
     <?php
-    include '/var/www/html/COGIP-app/assets/partials/footer.php';
+    require 'views/partials/footer.php';
     ?>

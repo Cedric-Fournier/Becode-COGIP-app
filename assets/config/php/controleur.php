@@ -1,6 +1,6 @@
 <?php
 $sql="SELECT id,type FROM company";
-include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+require 'assets/php-pdo/connect.php';
 $requete->execute();
 $company = $requete->fetchAll();
 $requete->closeCursor();
