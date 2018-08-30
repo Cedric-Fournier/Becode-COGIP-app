@@ -10,7 +10,6 @@
     // catch(PDOException $e) {
     //     echo "Error:".$e->getMessage();
     // }
-print_r($_SERVER);
     include '/var/www/html/COGIP-app/assets/partials/header.php';
 ?>
 

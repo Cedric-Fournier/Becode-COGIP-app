@@ -23,7 +23,7 @@
             <ul>
                 <?php
                     foreach ($company as $key => $value) { ?>
-                        <li><a href="<?=$url?>assets/pages/companyDetail.php?id=<?=$value['id']?>"><?=$value['name']?></a></li>
+                        <li><a href="<?=$url?>?page=societe&id=<?=$value['id']?>"><?=$value['name']?></a></li>
                 <?php } ?>
                 
             </ul>

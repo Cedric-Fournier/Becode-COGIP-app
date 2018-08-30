@@ -16,7 +16,7 @@ catch(Exception $e)
         // En cas d'erreur, on affiche un message et on arrête tout
             die('Erreur : '.$e->getMessage());
     }
-include '/var/www/html/COGIP-app/assets/partials/header.php';
+    require 'assets/partials/header.php';
 ?>
 <section>
 
@@ -25,12 +25,12 @@ include '/var/www/html/COGIP-app/assets/partials/header.php';
         <ul>
             <?php
                 foreach ($company as $key => $value) { ?>
-                    <li><a href="<?=$url?>assets/pages/companyDetail.php?id=<?=$value['id']?>"><h3><?=$value['name']?></h3></a></li>
-            <?php } ?>
+                    <li><a href="<?=$url?>?page=societe&type=client&id=<?=$value['id']?>"><h3><?=$value['name']?></h3></a></li>
+            <?php } ?> 
             
         </ul>
     </div>
     </section>
     <?php
-include '/var/www/html/COGIP-app/assets/partials/footer.php';
+require 'assets/partials/footer.php';
 ?>
