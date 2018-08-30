@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 28 Août 2018 à 12:28
+-- Généré le :  Jeu 30 Août 2018 à 14:06
 -- Version du serveur :  5.7.23-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.31-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -63,7 +63,8 @@ INSERT INTO `bill` (`number`, `date`, `object`, `company`, `person`) VALUES
 (22, '2018-03-20', 'Design Becode', 7, 24),
 (23, '2017-11-01', 'Multiple Design for WebDev', 7, 25),
 (24, '2018-07-06', 'Client', 7, 26),
-(25, '2018-06-02', 'Refonte de notre site', 7, 27);
+(25, '2018-06-02', 'Refonte de notre site', 7, 27),
+(26, '2017-12-22', 'Google Map Function', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -80,19 +81,20 @@ CREATE TABLE `company` (
   `city` varchar(30) NOT NULL,
   `country` varchar(30) NOT NULL,
   `VAT` varchar(12) NOT NULL,
-  `phone` varchar(20) NOT NULL
+  `phone` varchar(20) NOT NULL,
+  `type` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `company`
 --
 
-INSERT INTO `company` (`id`, `name`, `street`, `number`, `zip`, `city`, `country`, `VAT`, `phone`) VALUES
-(1, 'WebDevelopper', 'rue de la putterie', '6', '1000', 'Bruxelles', 'Belgique', '048349728', '024215736'),
-(2, 'Coca-Cola', 'avenue de l\'obésité', '99', '1030', 'Bruxelles', 'Belgique', '347812395', '024753214'),
-(5, 'Chez Jonny', 'rue des jonnys', '1', '1000', 'Bruxelles', 'Belgique', '351745029', '023219854'),
-(6, 'Paul & Company', 'avenue des pendus', '5', '1040', 'Bruxelles', 'Belgique', '032478159', '022540120'),
-(7, 'WebDesign', 'boulevard de Monaco', '145', '1020', 'Bruxelles', 'Belgique', '325149657', '022198530');
+INSERT INTO `company` (`id`, `name`, `street`, `number`, `zip`, `city`, `country`, `VAT`, `phone`, `type`) VALUES
+(1, 'WebDevelopper', 'rue de la putterie', '6', '1000', 'Bruxelles', 'Belgique', '048349728', '024215736', 1),
+(2, 'Coca-Cola', 'avenue de l\'obésité', '99', '1030', 'Bruxelles', 'Belgique', '347812395', '024753214', 2),
+(5, 'Chez Jonny', 'rue des jonnys', '1', '1000', 'Bruxelles', 'Belgique', '351745029', '023219854', 1),
+(6, 'Paul & Company', 'avenue des pendus', '5', '1040', 'Bruxelles', 'Belgique', '032478159', '022540120', 2),
+(7, 'WebDesign', 'boulevard de Monaco', '145', '1020', 'Bruxelles', 'Belgique', '325149657', '022198530', 1);
 
 -- --------------------------------------------------------
 
@@ -148,20 +150,30 @@ INSERT INTO `person` (`id`, `firstname`, `lastname`, `phone`, `email`, `company`
 
 CREATE TABLE `type` (
   `id` tinyint(3) UNSIGNED NOT NULL,
-  `type` varchar(30) DEFAULT NULL,
-  `company` tinyint(3) UNSIGNED NOT NULL
+  `type` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `type`
 --
 
-INSERT INTO `type` (`id`, `type`, `company`) VALUES
-(1, 'Web developper', 1),
-(2, 'Vente de boisson', 2),
-(3, 'Restaurant', 5),
-(4, 'Construction', 6),
-(5, 'Web designer', 7);
+INSERT INTO `type` (`id`, `type`) VALUES
+(1, 'client'),
+(2, 'fournisseur');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` tinyint(3) UNSIGNED NOT NULL,
+  `login` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `typeSession` varchar(30) NOT NULL COMMENT 'Admin/Modo'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Index pour les tables exportées
@@ -179,7 +191,8 @@ ALTER TABLE `bill`
 -- Index pour la table `company`
 --
 ALTER TABLE `company`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `type` (`type`);
 
 --
 -- Index pour la table `person`
@@ -192,8 +205,13 @@ ALTER TABLE `person`
 -- Index pour la table `type`
 --
 ALTER TABLE `type`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `company` (`company`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -203,7 +221,7 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT pour la table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `number` tinyint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `number` tinyint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT pour la table `company`
 --
@@ -220,6 +238,11 @@ ALTER TABLE `person`
 ALTER TABLE `type`
   MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- Contraintes pour les tables exportées
 --
 
@@ -231,16 +254,16 @@ ALTER TABLE `bill`
   ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`person`) REFERENCES `person` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
+-- Contraintes pour la table `company`
+--
+ALTER TABLE `company`
+  ADD CONSTRAINT `company_ibfk_1` FOREIGN KEY (`type`) REFERENCES `type` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
 -- Contraintes pour la table `person`
 --
 ALTER TABLE `person`
   ADD CONSTRAINT `person_ibfk_1` FOREIGN KEY (`company`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `type`
---
-ALTER TABLE `type`
-  ADD CONSTRAINT `type_ibfk_1` FOREIGN KEY (`company`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

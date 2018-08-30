@@ -23,6 +23,21 @@ elseif($page == 'societe'){
     if( (empty($_GET['type'])) AND (empty($id)))
     {
         require 'vues/company.php';
+
+    switch ($_GET["page"]) {
+        case 'directory':
+            require "controllers/controller.php";
+            directoryPage();
+            break;
+
+        case 'detailPerson':
+            require "controllers/controller.php";
+            detailPersonPage();
+            break;
+                    
+        default:            
+            echo "Home page";
+            break;
     }
     elseif((filter_var($id,FILTER_VALIDATE_INT))AND(empty($_GET['type']))){
         foreach ($company as $value) {
@@ -164,3 +179,5 @@ else{
 // }else{
 //     require '404.php';
 // }
+
+?>
