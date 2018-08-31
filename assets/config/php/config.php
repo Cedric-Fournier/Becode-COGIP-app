@@ -7,7 +7,7 @@
         $db_config['DB_NAME']	= 'COGIPapp';
         $db_config['CHARSET'] = 'utf8';
         $db_config['USER']	= 'root';
-        $db_config['PASSWORD']	= 'root';
+        $db_config['PASSWORD']	= 'root';//root
         $db_config['OPTIONS']	= array(
             // Activation des exceptions PDO :
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -20,7 +20,7 @@
         $db_config['PASSWORD'],
         $db_config['OPTIONS']);
         unset($db_config);
-        
+
     }
     catch(Exception $e) {
         trigger_error($e->getMessage(), E_USER_ERROR);

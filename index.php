@@ -23,18 +23,22 @@ switch ($_GET["page"]) {
             break;
 
     case 'societe':
+            require "controller/controller.php";
             companyPage();
             break;
 
     case 'detailCompany':
+            require "controller/controller.php";
             detailCompanyPage();
             break;
 
     case 'client':
+            require "controller/controller.php";
             companyClientPage();
             break;
 
     case 'provider':
+            require "controller/controller.php";
             companyProviderPage();
             break;
 
