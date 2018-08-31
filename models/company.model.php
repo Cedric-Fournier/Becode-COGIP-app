@@ -1,7 +1,7 @@
 <?php
 
-    require "assets/config/php/config.php";
-    global $pdo;
+    // require "assets/config/php/config.php";
+    // global $pdo;
     // function companyCreate(){global $pdo;}
     function companyRead($id){
         $data=array();
@@ -37,8 +37,9 @@
         $requete->closeCursor();}
 
     function companyView(){
+        require "assets/config/php/config.php";
         $requestSQL="SELECT id,name from company order by name asc";
-        global $pdo;
+        // global $pdo;
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
         $company = $requete->fetchAll();
