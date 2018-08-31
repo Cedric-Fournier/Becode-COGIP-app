@@ -34,6 +34,10 @@ switch ($_GET["page"]) {
             require "controller/controller.php";
             companyDeletePage();
             break;
+        case 'societeUpdate'://avec second paramet 'id'
+            require "controller/controller.php";
+            companyUpdatePage();
+            break;
 
     case 'detailCompany':
             require "controller/controller.php";

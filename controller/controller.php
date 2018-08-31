@@ -67,6 +67,17 @@
         global $url;
         $message=companyDelete($_GET['id']);
         require "views/CRUD/company/delete.php";}
+    function companyUpdatePage(){
+        require "models/company.model.php";
+        global $url;
+        $donneesCompanyModife=companyUpdate();
+        $company=$donneesCompanyModife['0'];
+            $checkType=$donneesCompanyModife['1'];
+            $type=$donneesCompanyModife['2'];
+            $message=$donneesCompanyModife['3'];
+        require "views/CRUD/company/modife.php";
+    
+    }
 /*
             page home
 */
