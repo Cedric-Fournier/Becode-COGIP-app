@@ -1,7 +1,7 @@
 <?php
 
     require "assets/config/php/config.php";
-    $pdo=connectDB();
+    global $pdo;
     // function companyCreate(){global $pdo;}
     function companyRead($id){
         $data=array();
@@ -30,7 +30,11 @@
         return $data;
     }
     // function companyUpdate(){global $pdo;}
-    // function companyDelete(){global $pdo;}
+     function companyDelete($id){global $pdo;
+        $requestSQL="DELETE from company where id = $id";
+        $requete = $pdo->prepare($requestSQL);
+        $requete->execute();
+        $requete->closeCursor();}
 
     function companyView(){
         $requestSQL="SELECT id,name from company order by name asc";

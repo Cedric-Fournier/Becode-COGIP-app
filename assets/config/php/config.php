@@ -1,5 +1,5 @@
 <?php
-function connectDB(){
+
     try {
         $db_config = array();
         $db_config['SGBD']	= 'mysql';
@@ -20,10 +20,10 @@ function connectDB(){
         $db_config['PASSWORD'],
         $db_config['OPTIONS']);
         unset($db_config);
-        return $pdo;
+        
     }
     catch(Exception $e) {
         trigger_error($e->getMessage(), E_USER_ERROR);
     }
-}
+
 ?>
