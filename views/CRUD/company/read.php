@@ -1,32 +1,4 @@
-<?php
-try
-{
-// company
-    // $id=$_GET['id'];//variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
-    $sql="SELECT company.*,type.type AS categorie from company,type where company.id = $id and company.type=type.id";
-    include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
-    $requete->execute();
-    $company = $requete->fetch();
-    $requete->closeCursor();
-// person
-    $sql="SELECT lastname,firstname from person where person.company = $id";
-    include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
-    $requete->execute();
-    $person = $requete->fetchAll();
-    $requete->closeCursor();
-// bill
-    $sql="SELECT object from bill where bill.company = $id";
-    include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
-    $requete->execute();
-    $bill = $requete->fetchAll();
-    $requete->closeCursor();
-}
-catch(Exception $e)
-    {
-        // En cas d'erreur, on affiche un message et on arrête tout
-            die('Erreur : '.$e->getMessage());
-    } 
-?>
+
 <?php
     require 'views/partials/header.php';
     ?>

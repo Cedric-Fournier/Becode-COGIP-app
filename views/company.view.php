@@ -1,7 +1,4 @@
 <?php
-    $url="http://localhost/COGIP-app/";
-?>
-<?php
     require 'views/partials/header.php';
     ?>
     <section>

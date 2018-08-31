@@ -1,21 +1,4 @@
 <?php
-$url="http://localhost/COGIP-app/";
-try
-    {
-        // company
-        $sql="SELECT company.id AS id,company.name AS name FROM company, type WHERE type.id=company.type AND type.type=:categorie ORDER BY company.name asc";
-        include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
-        $categorie="fournisseur";
-        $requete->bindParam(":categorie" , $categorie);
-        $requete->execute();
-        $company = $requete->fetchAll();
-        $requete->closeCursor();
-    }
-catch(Exception $e)
-    {
-        // En cas d'erreur, on affiche un message et on arrête tout
-            die('Erreur : '.$e->getMessage());
-    }
     require 'views/partials/header.php';
 ?>
 <section>

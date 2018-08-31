@@ -1,52 +1,55 @@
 <?php
     require "controller/controller.php";
-    $sql="SELECT id,type FROM company";
-    require 'assets/php-pdo/connect.php';
+    $requestSQL="SELECT id,type FROM company";
+    global $pdo;
+    $requete = $pdo->prepare($requestSQL);
     $requete->execute();
     $company = $requete->fetchAll();
     $requete->closeCursor();
     $pagesCompanyTrouver=false;
-    $page = "";
-    $id="";
-    $url="http://localhost/COGIP-app/";
+        $pageCompany= "";
+        $idCompany="";
 
 if(!empty($_GET['page'])){
-    $page = $_GET['page'];
+    $pageCompany = $_GET['page'];
 }
 if(!empty($_GET['id'])){
-    $id = $_GET['id'];
+    $idCompany = $_GET['id'];
 }
-if(($page == "")OR($page == 'home'))//test pour la page accuel
+if(($pageCompany == "")OR($pageCompany == 'home'))//test pour la page accuel
 {
-    require 'views/home.view.php';
+    homePage();
 }
 
-elseif($page == 'societe'){
-    if( (empty($_GET['type'])) AND (empty($id)))
+elseif($pageCompany == 'societe'){
+    if( (empty($_GET['type'])) AND (empty($idCompany)))
     {
         companyPage();
     }
-    elseif((filter_var($id,FILTER_VALIDATE_INT))AND(empty($_GET['type']))){
+    elseif((filter_var($idCompany,FILTER_VALIDATE_INT))AND(empty($_GET['type']))){
         foreach ($company as $value) {
-            if($value['id']==$id)
-            { $idSociete=$id;
+            if($value['id']==$idCompany)
+            { 
+                $idSociete=$idCompany;
                 $pagesCompanyTrouver=true;
-            require 'views/companyDetail.view.php';}
+                detailCompanyPage();
+            }
         }
-        if($pagesCompanyTrouver==false){require 'views/404.view.php';}
+        if($pagesCompanyTrouver==false){error404Page();}
     }
     elseif($_GET['type']=="client")
     {
         if(empty($_GET['id']))
         {
-            require 'views/client.view.php';
+            companyClientPage();
         }
         elseif(filter_var($_GET['id'],FILTER_VALIDATE_INT))
         {
             foreach ($company as $value) {
                 if(($value['id']==$_GET['id'])and($value['type']==2))
-                    { $idSociete=$_GET['id'];
-                        require 'views/companyDetail.view.php';
+                    { 
+                        $idSociete=$_GET['id'];
+                        detailCompanyPage();
                     }
                 elseif(($value['id']==$_GET['id'])and($value['type']==1))
                     {
@@ -62,14 +65,14 @@ elseif($page == 'societe'){
     elseif($_GET['type']=="fournisseur")
     {
         if(empty($_GET['id'])){
-            require 'views/provider.view.php';
+            companyProviderPage();
         }
         elseif(filter_var($_GET['id'],FILTER_VALIDATE_INT))
         {
             foreach ($company as $value) {
                 if(($value['id']==$_GET['id'])and($value['type']==1))
                     { $idSociete=$_GET['id'];
-                        require 'views/companyDetail.view.php';
+                        detailCompanyPage();
                     }
                 elseif(($value['id']==$_GET['id'])and($value['type']==2))
                     {
@@ -87,85 +90,13 @@ elseif($page == 'societe'){
         error404Page();
     }
 }
-elseif($page == 'annulaire'){
-    require 'views/home.view.php';
+elseif($pageCompany == 'annulaire'){
+   
 }
-elseif($page == 'bill'){
-    require 'views/home.view.php';
+elseif($pageCompany == 'bill'){
+    
 }
 else{
     error404Page();
 }
-// switch ($_GET["page"]) {
-//     case 'directory':
-//         require "controllers/controller.php";
-//         directoryPage();
-//         break;
-
-//     case 'detailPerson':
-//         require "controllers/controller.php";
-//         detailPersonPage();
-//         break;
-                
-//     default:            
-//         echo "Home page";
-//         break;
-// }
-//     elseif((!empty($_GET[''])) AND (!empty())){
-//         if((!filter_var($url[1],FILTER_VALIDATE_INT))AND($url[1] == 'client'))
-//         {
-//             if(empty($url[2])){
-//             require 'views/client.view.php'; }
-//             elseif(filter_var($url[2],FILTER_VALIDATE_INT))
-//             {
-//                 foreach ($company as $value) {
-//                     if(($value['id']==$url[2])and($value['type']==2))
-//                     { $idSociete=$url[2];
-//                     require 'views/companyDetail.view.php';}
-//                     elseif(($value['id']==$url[2])and($value['type']==1))
-//                     {
-//                         require 'views/404.view.php';
-//                     }
-//                 }   
-//             }
-//         }
-//         elseif((!filter_var($url[1],FILTER_VALIDATE_INT))AND($url[1] == 'fournisseur'))
-//         {
-//             if(empty($url[2])){
-//                 require 'views/provider.view.php'; 
-//             }
-//             elseif(filter_var($url[2],FILTER_VALIDATE_INT))
-//             {
-//                 foreach ($company as $value)
-//                 {
-//                     if(($value['id']==$url[2])and($value['type']==1))
-//                     {
-//                         $idSociete=$url[2];
-//                         require 'views/companyDetail.view.php';
-//                     }elseif(($value['id']==$url[2])and($value['type']==2))
-//                     {
-//                         require 'views/404.view.php';
-//                     }
-//                 }
-//             }
-//         }
-//         elseif()
-//         {
-            
-//         }else
-//         {
-//             require 'views/404.view.php';
-//         }
-//     }
-// }
-// elseif( ($_GET['url'] == 'bill'){
-//     require 'views/company.view.php';
-// }
-// elseif( ($_GET['url'] == 'person'){
-//     require 'views/company.view.php';
-// }
-// else
-// {
-//     require 'views/404.view.php';
-// }
 ?>
