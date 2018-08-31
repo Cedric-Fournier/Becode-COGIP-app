@@ -1,33 +1,39 @@
 <?php
-require "models/person.model.php";
-require "models/company.model.php";
-$url="http://localhost/COGIP-app/";
-/*
-            page for person
-*/
-    // function directoryPage(){
-    //     $reponse = getDirectory();
-    //     require "views/directory.view.php";
-    //     $reponse->closeCursor();
-        
-    // }
 
-    // function detailPersonPage(){
-    //     $person = getDetailPerson();
-    //     require "views/detailPerson.view.php";
-    //     $reponse->closeCursor();
-    // }
-/*
-            page for company
-*/
+    function directoryPage(){
+        require "models/person.model.php";
+        $reponse = getDirectory();
+        require "views/directory.view.php";
+        $reponse->closeCursor();
+    }
+    function detailPersonPage(){
+        require "models/person.model.php";
+        $person = getDetailPerson();
+        require "views/detailPerson.view.php";
+    }
+
+    function billPage(){
+      require "models/model_bill.php";
+      require "views/view_bill.php";
+      $req->closeCursor();
+    }
+    function detailBillPage(){
+      require "models/model_billDetail.php";
+      require "views/view_billDetail.php";
+      $req->closeCursor();
+    }
+
+
+
+    require "models/company.model.php";
+    $url="http://localhost/COGIP-app/";
     function companyPage(){
         global $url;
         $company=companyView();
         require "views/company.view.php";
     }
     function detailCompanyPage(){
-        global $idSociete;
-        $id=companyDetail($idSociete);
+        $id=companyDetail($_GET['id']);
         $donnees=companyRead($id);
         $company=$donnees['0'];
         $person=$donnees['1'];
@@ -47,11 +53,6 @@ $url="http://localhost/COGIP-app/";
 /*
             page home
 */
-    function homePage(){require 'views/home.view.php';}
-/*
-            page error
-*/
-    function error404Page(){
-        require "views/404.view.php";
-    }
+    // function homePage(){require 'views/home.view.php';}
+
 ?>

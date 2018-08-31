@@ -14,7 +14,7 @@ function connectDB(){
             // Change le fetch mode par défaut sur FETCH_ASSOC ( fetch() retournera un tableau associatif ) :
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         );
-        
+
         $pdo = new PDO($db_config['SGBD'] .':host='. $db_config['HOST'] .';dbname='. $db_config['DB_NAME'] . ';charset=' . $db_config['CHARSET'],
         $db_config['USER'],
         $db_config['PASSWORD'],

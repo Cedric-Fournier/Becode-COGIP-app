@@ -6,21 +6,21 @@
     function companyRead($id){
         $data=array();
         global $pdo;
-    // company
+            // company
         $requestSQL="SELECT company.*,type.type AS categorie from company,type where company.id = $id and company.type=type.id";
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
         $company = $requete->fetch();
         $requete->closeCursor();
         $data[0]=$company;
-    // person
+            // person
         $requestSQL="SELECT lastname,firstname from person where person.company = $id";
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
         $person = $requete->fetchAll();
         $requete->closeCursor();
         $data[1]=$person;
-    // bill
+            // bill
         $requestSQL="SELECT object from bill where bill.company = $id";
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
