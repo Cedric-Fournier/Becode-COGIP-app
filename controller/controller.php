@@ -6,7 +6,6 @@
         require "views/directory.view.php";
         $reponse->closeCursor();
     }
-
     function detailPersonPage(){
         require "models/person.model.php";
         $person = getDetailPerson();
@@ -25,15 +24,15 @@
     }
 
 
-
-    require "models/company.model.php";
-    $url="http://localhost/COGIP-app/";
+    $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
     function companyPage(){
+        require "models/company.model.php";
         global $url;
         $company=companyView();
         require "views/company.view.php";
     }
     function detailCompanyPage(){
+        require "models/company.model.php";
         $id=companyDetail($_GET['id']);
         $donnees=companyRead($id);
         $company=$donnees['0'];
@@ -42,11 +41,13 @@
         require 'views/companyDetail.view.php';
     }
     function companyClientPage(){
+        require "models/company.model.php";
         global $url;
         $company=companyClientView();
         require "views/client.view.php";
     }
     function companyProviderPage(){
+        require "models/company.model.php";
         global $url;
         $company=companyProviderView();
         require "views/provider.view.php";
