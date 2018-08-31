@@ -16,7 +16,7 @@
             <?php while ($donnees = $reponse->fetch()) { ?>
             <tr>
                 <td><?php echo $donnees['firstname'] . ' '; ?></td>
-                <td><a href="detailPerson.php?id=<?= $donnees['id']; ?>"><?= $donnees['lastname'] . '<br />'; ?></a></td>
+                <td><a href="?page=detailPerson&id=<?= $donnees['id']; ?>"><?= $donnees['lastname'] . '<br />'; ?></a></td>
             </tr>
             <?php } ?>
         </table>

@@ -10,7 +10,6 @@
         require "models/person.model.php";
         $person = getDetailPerson();
         require "views/detailPerson.view.php";
-        $reponse->closeCursor();
     }
     function billPage(){
       require "models/model_bill.php";

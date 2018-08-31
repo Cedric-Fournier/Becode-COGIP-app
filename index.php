@@ -1,5 +1,6 @@
 <?php
     switch ($_GET["page"]) {
+
         case 'directory':
             require "controller/controller.php";
             directoryPage();
@@ -23,6 +24,7 @@
         default:
             echo "Home page";
             break;
+            
     }
 
 ?>
