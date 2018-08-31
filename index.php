@@ -53,7 +53,10 @@ switch ($_GET["page"]) {
             require "controller/controller.php";
             companyProviderPage();
             break;
-
+    case 'login':
+            require "controller/controller.php";
+            loginPage();
+            break;
     default:
             echo "Home page";
             break;

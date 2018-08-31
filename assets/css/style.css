@@ -1,0 +1,44 @@
+.model{width: 100%;
+    height: 100%;}
+.login{
+    background-color: cornsilk;
+    width: 60%;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 5% auto 15% auto;
+    padding: 4%;
+}
+buttonLog:hover {
+	opacity: 0.4;
+}
+.labelLog {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	/* border: 1px solid #ccc; */
+	box-sizing: border-box;
+	/* border-radius: 25%;
+	*/
+}
+.inputLog {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	/* border-radius: 25%;
+	*/
+}
+.buttonLog {
+	background-color: rgb(37, 6, 46);
+	margin: 8px;
+	border-radius: 10%;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	cursor: pointer;
+	width: 35%;
+}

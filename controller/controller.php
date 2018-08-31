@@ -24,7 +24,7 @@
     }
 
 
-    $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
+    $url="http://challenge-sql:8888/";//http://localhost/COGIP-app
     function companyPage(){
         require "models/company.model.php";
         global $url;
@@ -77,6 +77,9 @@
             $message=$donneesCompanyModife['3'];
         require "views/CRUD/company/modife.php";
     
+    }
+    function loginPage(){
+        require "views/login.php";
     }
 /*
             page home

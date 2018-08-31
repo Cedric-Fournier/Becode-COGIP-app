@@ -8,5 +8,6 @@
     <script src="http://localhost/COGIP-app/vendor/components/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost/COGIP-app/vendor/components/font-awesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="http://localhost/COGIP-app/assets/css/style.css">
 </head>
 <body>
