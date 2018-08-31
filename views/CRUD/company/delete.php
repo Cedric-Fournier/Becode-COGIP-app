@@ -5,14 +5,14 @@
             {
                 $id=$_POST['id'];
                 $sql="DELETE from company where id = $id";
-                include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+                require 'assets/php-pdo/connect.php';
                 $requete->execute();
                 $requete->closeCursor();
             }else{
                 $id=$_GET['id']; //variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
             }
             $sql="SELECT * from company where id = $id";
-            include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+            require 'assets/php-pdo/connect.php';
             $requete->execute();
             $donnees = $requete->fetch();
             $requete->closeCursor();
@@ -28,7 +28,7 @@
                     break;
             }
             $sql="SELECT type.* from type ";
-            include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+            require 'assets/php-pdo/connect.php';
             $requete->execute();
             $type = $requete->fetchAll();
             $requete->closeCursor();

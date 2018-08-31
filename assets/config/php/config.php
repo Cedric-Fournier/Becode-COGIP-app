@@ -1,5 +1,5 @@
 <?php
-function connectDB(){
+
     try {
         $db_config = array();
         $db_config['SGBD']	= 'mysql';
@@ -7,7 +7,7 @@ function connectDB(){
         $db_config['DB_NAME']	= 'COGIPapp';
         $db_config['CHARSET'] = 'utf8';
         $db_config['USER']	= 'root';
-        $db_config['PASSWORD']	= 'root';
+        $db_config['PASSWORD']	= 'root';//root
         $db_config['OPTIONS']	= array(
             // Activation des exceptions PDO :
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -20,10 +20,10 @@ function connectDB(){
         $db_config['PASSWORD'],
         $db_config['OPTIONS']);
         unset($db_config);
-        return $pdo;
+
     }
     catch(Exception $e) {
         trigger_error($e->getMessage(), E_USER_ERROR);
     }
-}
+
 ?>

@@ -8,7 +8,7 @@
         <ul>
             <?php
                 foreach ($company as $key => $value) { ?>
-                    <li><a href="<?=$url?>page=societe&type=fournisseur&id=<?=$value['id']?>"><h3><?=$value['name']?></h3></a></li>
+                    <li><a href="<?=$url?>page=detailCompany&id=<?=$value['id']?>"><h3><?=$value['name']?></h3></a></li>
             <?php } ?>
             
         </ul>

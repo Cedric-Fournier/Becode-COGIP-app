@@ -1,29 +1,50 @@
 <?php
-    switch ($_GET["page"]) {
+// require "controller/controller.php";
+switch ($_GET["page"]) {
 
-        case 'directory':
+    case 'directory':
             require "controller/controller.php";
             directoryPage();
             break;
 
-        case 'detailPerson':
+    case 'detailPerson':
             require "controller/controller.php";
             detailPersonPage();
             break;
 
-        case 'bill':
+    case 'bill':
             require "controller/controller.php";
             billPage();
             break;
 
-        case 'detailbill':
+    case 'detailbill':
             require "controller/controller.php";
             detailBillPage();
             break;
 
-        default:
+    case 'societe':
+            require "controller/controller.php";
+            companyPage();
+            break;
+
+    case 'detailCompany':
+            require "controller/controller.php";
+            detailCompanyPage();
+            break;
+
+    case 'client':
+            require "controller/controller.php";
+            companyClientPage();
+            break;
+
+    case 'provider':
+            require "controller/controller.php";
+            companyProviderPage();
+            break;
+
+    default:
             echo "Home page";
             break;
-            
     }
+
 ?>

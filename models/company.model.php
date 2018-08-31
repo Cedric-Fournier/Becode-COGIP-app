@@ -1,26 +1,26 @@
 <?php
 
-    require "assets/config/php/config.php";
-    $pdo=connectDB();
+    // require "assets/config/php/config.php";
+    // global $pdo;
     // function companyCreate(){global $pdo;}
     function companyRead($id){
         $data=array();
-        global $pdo;
-    // company
+        require "assets/config/php/config.php";
+            // company
         $requestSQL="SELECT company.*,type.type AS categorie from company,type where company.id = $id and company.type=type.id";
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
         $company = $requete->fetch();
         $requete->closeCursor();
         $data[0]=$company;
-    // person
+            // person
         $requestSQL="SELECT lastname,firstname from person where person.company = $id";
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
         $person = $requete->fetchAll();
         $requete->closeCursor();
         $data[1]=$person;
-    // bill
+            // bill
         $requestSQL="SELECT object from bill where bill.company = $id";
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
@@ -30,11 +30,17 @@
         return $data;
     }
     // function companyUpdate(){global $pdo;}
-    // function companyDelete(){global $pdo;}
+     function companyDelete($id){
+        require "assets/config/php/config.php";
+        $requestSQL="DELETE from company where id = $id";
+        $requete = $pdo->prepare($requestSQL);
+        $requete->execute();
+        $requete->closeCursor();}
 
     function companyView(){
+        require "assets/config/php/config.php";
         $requestSQL="SELECT id,name from company order by name asc";
-        global $pdo;
+        // global $pdo;
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
         $company = $requete->fetchAll();
@@ -42,8 +48,8 @@
         return $company;
     }
     function companyClientView(){
+        require "assets/config/php/config.php";
         $requestSQL="SELECT company.id AS id,company.name AS name FROM company, type WHERE type.id=company.type AND type.type=:categorie ORDER BY company.name asc";
-        global $pdo;
         $requete = $pdo->prepare($requestSQL);
         $categorie="client";
         $requete->bindParam(":categorie" , $categorie);
@@ -53,8 +59,8 @@
         return $company;
     }
     function companyProviderView(){
+        require "assets/config/php/config.php";
         $requestSQL="SELECT company.id AS id,company.name AS name FROM company, type WHERE type.id=company.type AND type.type=:categorie ORDER BY company.name asc";
-        global $pdo;
         $requete = $pdo->prepare($requestSQL);
         $categorie="fournisseur";
         $requete->bindParam(":categorie" , $categorie);

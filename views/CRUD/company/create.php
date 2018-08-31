@@ -6,7 +6,7 @@ try
     
             // print_r($_POST);
             $sql="INSERT INTO company (name, street, number, zip, city, country, VAT, phone, type) VALUES (:name, :street, :number, :zip, :city, :country, :VAT, :phone, :type);";
-            include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+            require 'assets/php-pdo/connect.php';
             $requete->bindParam(":name", $_POST['name']);
 			$requete->bindParam(":street", $_POST['street']);
             $requete->bindParam(":number", $_POST['number']);
@@ -23,7 +23,7 @@ try
     
         }
             $sql="SELECT type.* from type ";
-            include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+            require 'assets/php-pdo/connect.php';
             $requete->execute();
             $type = $requete->fetchAll();
             $requete->closeCursor();

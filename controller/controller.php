@@ -10,13 +10,8 @@
         require "models/person.model.php";
         $person = getDetailPerson();
         require "views/detailPerson.view.php";
-require "models/company.model.php";
-$url="http://localhost/COGIP-app/";
-    function companyPage(){
-        global $url;
-        $company=companyView();
-        require "views/company.view.php";
     }
+
     function billPage(){
       require "models/model_bill.php";
       require "views/view_bill.php";
@@ -28,9 +23,17 @@ $url="http://localhost/COGIP-app/";
       $req->closeCursor();
     }
 
+
+    $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
+    function companyPage(){
+        require "models/company.model.php";
+        global $url;
+        $company=companyView();
+        require "views/company.view.php";
+    }
     function detailCompanyPage(){
-        global $idSociete;
-        $id=companyDetail($idSociete);
+        require "models/company.model.php";
+        $id=companyDetail($_GET['id']);
         $donnees=companyRead($id);
         $company=$donnees['0'];
         $person=$donnees['1'];
@@ -38,18 +41,20 @@ $url="http://localhost/COGIP-app/";
         require 'views/companyDetail.view.php';
     }
     function companyClientPage(){
+        require "models/company.model.php";
         global $url;
         $company=companyClientView();
         require "views/client.view.php";
     }
     function companyProviderPage(){
+        require "models/company.model.php";
         global $url;
         $company=companyProviderView();
-        require "views/provider.view.php";  
+        require "views/provider.view.php";
     }
 /*
             page home
 */
-    function homePage(){require 'views/home.view.php';}
-/*
+    // function homePage(){require 'views/home.view.php';}
+
 ?>
