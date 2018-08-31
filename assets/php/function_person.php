@@ -1,4 +1,12 @@
 <?php
+
+    // A PAS UTILISER
+    // A PAS UTILISER
+    // A PAS UTILISER
+    // A PAS UTILISER
+    // A PAS UTILISER
+    // A PAS UTILISER
+    
     // require "assets/config/php/config.php";
 
     function displayDetailPersonByID($getID) {
