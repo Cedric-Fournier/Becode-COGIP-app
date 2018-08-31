@@ -5,7 +5,7 @@
             {
                 $id=$_POST['id'];
                 $sql="UPDATE company SET name=:name, street=:street, number=:number, zip=:zip, city=:city, country=:country, VAT=:VAT, phone=:phone, type=:type where id = $id";
-                include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+                require 'assets/php-pdo/connect.php';
                 $requete->bindParam(":name", $_POST['name']);
                 $requete->bindParam(":street", $_POST['street']);
                 $requete->bindParam(":number", $_POST['number']);
@@ -22,7 +22,7 @@
             }
             $checkType=array();
             $sql="SELECT company.* from company where id = $id";
-            include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+            require 'assets/php-pdo/connect.php';
             $requete->execute();
             $company = $requete->fetch();
             $requete->closeCursor();
@@ -38,7 +38,7 @@
                     break;
             }
             $sql="SELECT type.* from type ";
-            include '/var/www/html/COGIP-app/assets/php-pdo/connect.php';
+            require 'assets/php-pdo/connect.php';
             $requete->execute();
             $type = $requete->fetchAll();
             $requete->closeCursor();
