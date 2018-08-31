@@ -12,7 +12,6 @@
         require "models/person.model.php";
         $person = getDetailPerson();
         require "views/detailPerson.view.php";
-        $reponse->closeCursor();
     }
 
 ?>
