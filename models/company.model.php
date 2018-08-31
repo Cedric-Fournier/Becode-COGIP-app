@@ -2,7 +2,43 @@
 
     // require "assets/config/php/config.php";
     // global $pdo;
-    // function companyCreate(){global $pdo;}
+    function companyCreate(){
+        require "assets/config/php/config.php";
+        $message=""; 
+        if(isset($_POST['creer'])){
+            // print_r($_POST);
+            $requestSQL="INSERT INTO company (name, street, number, zip, city, country, VAT, phone, type) VALUES (:name, :street, :number, :zip, :city, :country, :VAT, :phone, :type);";
+            $requete = $pdo->prepare($requestSQL);
+            $requete->bindParam(":name", $_POST['name']);
+			$requete->bindParam(":street", $_POST['street']);
+            $requete->bindParam(":number", $_POST['number']);
+            $requete->bindParam(":zip", $_POST['zip']);
+			$requete->bindParam(":city", $_POST['city']);
+            $requete->bindParam(":country", $_POST['country']);
+            $requete->bindParam(":VAT", $_POST['VAT']);
+            $requete->bindParam(":phone", $_POST['phone']);
+            $requete->bindParam(":type", $_POST['type']);
+			$requete->execute();
+			$message="La société a été ajoutée avec succès.";
+            $requete->closeCursor();
+        }
+        return $message;
+    }
+
+function lireTypeCompany(){
+    $data=array();
+    require "assets/config/php/config.php";
+    $requestSQL="SELECT type.* from type ";
+    $requete = $pdo->prepare($requestSQL);
+    $requete->execute();
+    $type = $requete->fetchAll();
+    $requete->closeCursor();
+    $checkType=["1"=>"checked","2"=>""];
+    $data['0']=$type;
+    $data['1']=$checkType;
+    return $data;
+}
+
     function companyRead($id){
         $data=array();
         require "assets/config/php/config.php";
@@ -35,7 +71,10 @@
         $requestSQL="DELETE from company where id = $id";
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
-        $requete->closeCursor();}
+        $requete->closeCursor();
+        $message='vous aviez bien supprimer la societe';
+        return $message;
+    }
 
     function companyView(){
         require "assets/config/php/config.php";

@@ -52,6 +52,21 @@
         $company=companyProviderView();
         require "views/provider.view.php";
     }
+    function companyAddPage(){
+        require "models/company.model.php";
+        global $url;
+        $message=companyCreate();
+        $donneesInfoType=lireTypeCompany();
+        $type=$donneesInfoType['0'];
+        $checkType=$donneesInfoType['1'];
+        require "views/CRUD/company/create.php";
+    }
+
+    function companyDeletePage(){
+        require "models/company.model.php";
+        global $url;
+        $message=companyDelete($_GET['id']);
+        require "views/CRUD/company/delete.php";}
 /*
             page home
 */
