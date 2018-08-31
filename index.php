@@ -1,5 +1,5 @@
 <?php
-require "controller/controller.php";
+// require "controller/controller.php";
 switch ($_GET["page"]) {
 
     case 'directory':
@@ -21,11 +21,11 @@ switch ($_GET["page"]) {
             require "controller/controller.php";
             detailBillPage();
             break;
-              
+
     case 'societe':
             companyPage();
             break;
-    
+
     case 'detailCompany':
             detailCompanyPage();
             break;
@@ -33,14 +33,14 @@ switch ($_GET["page"]) {
     case 'client':
             companyClientPage();
             break;
-    
+
     case 'provider':
             companyProviderPage();
             break;
 
     default:
             echo "Home page";
-            break;    
+            break;
     }
-    
+
 ?>

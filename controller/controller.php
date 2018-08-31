@@ -6,6 +6,7 @@
         require "views/directory.view.php";
         $reponse->closeCursor();
     }
+
     function detailPersonPage(){
         require "models/person.model.php";
         $person = getDetailPerson();
@@ -48,7 +49,7 @@
     function companyProviderPage(){
         global $url;
         $company=companyProviderView();
-        require "views/provider.view.php";  
+        require "views/provider.view.php";
     }
 /*
             page home
