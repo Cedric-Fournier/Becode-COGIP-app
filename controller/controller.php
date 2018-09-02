@@ -20,13 +20,41 @@ $url="http://localhost/COGIP-app/";//http://localhost/COGIP-app/
       require "views/view_bill.php";
       $req->closeCursor();
     }
+    function billPageV2(){
+        global $url;
+      require "models/bill.model.php";
+      $bill=lireBill();
+      require "views/bill.view.php";
+    }
     function detailBillPage(){
         global $url;
       require "models/model_billDetail.php";
       require "views/view_billDetail.php";
       $req->closeCursor();
     }
+    function detailBillPageV2(){
+        global $url;
+      require "models/bill.model.php";
+      $detailBill=detailBill();
+      require "views/billDetail.view.php";
+    }
 
+    function dashboard(){
+        global $url;
+      require "models/dashboard_model.php";
+      require "views/dashboard_view.php";
+      $reqbill->closeCursor();
+      $reqcompany->closeCursor();
+      $reqPerson->closeCursor();
+    }
+    function dashboardV2(){
+        global $url;
+        require "models/dashboard.model.php";
+        $bill=billFiveLatest();
+        $company=companyFiveLatest();
+        $person=personFiveLatest();
+        require "views/dashboard.view.php";
+    }
 
     
     function companyPage(){
@@ -36,6 +64,7 @@ $url="http://localhost/COGIP-app/";//http://localhost/COGIP-app/
         require "views/company.view.php";
     }
     function detailCompanyPage(){
+        global $url;
         require "models/company.model.php";
         $id=companyDetail($_GET['id']);
         $donnees=companyRead($id);

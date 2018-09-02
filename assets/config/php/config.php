@@ -20,7 +20,7 @@
         $db_config['PASSWORD'],
         $db_config['OPTIONS']);
         unset($db_config);
-        
+
     }
     catch(Exception $e) {
         trigger_error($e->getMessage(), E_USER_ERROR);

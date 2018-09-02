@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md bg-light navbar-blue">
   <!-- Brand -->
   
-  <span class="navbar-brand" id="band"><a href="#"><img src="assets/images/COGIP-logo.png" alt="logo"></a>
+  <span class="navbar-brand" id="band"><a href="<?=$url?>?page=dashboardV2"><img src="assets/images/COGIP-logo.png" alt="logo"></a>
   </span>
   <!-- Toggler/collapsibe Button -->
   <button name="menu" aria-hidden="true" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -21,7 +21,7 @@
         <a class="nav-link" href="<?=$url?>?page=directory">Annulaire</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?=$url?>?page=bill">Facture</a>
+        <a class="nav-link" href="<?=$url?>?page=billV2">Facture</a>
       </li> 
     </ul>
   </div> 

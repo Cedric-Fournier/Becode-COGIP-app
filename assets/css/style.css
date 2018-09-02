@@ -9,6 +9,7 @@
 	margin: 5% auto 15% auto;
     padding: 4%;
 }
+h1{color: #00f;}
 .login{
     background-color: cornsilk;
     width: 60%;
@@ -99,3 +100,8 @@ buttonLog:hover {
   .navbar-blue .navbar-text a:hover, .navbar-blue .navbar-text a:focus {
 	color: rgba(0, 0, 255, 0.9);
   }
+table{background-color: #fff;}
+th{background-color: #f0f;
+color: #0f0;}
+td{background-color: #0f0;
+	color: #f0f;}

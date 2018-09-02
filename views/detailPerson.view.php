@@ -14,7 +14,8 @@
             require 'views/partials/header.php';
         ?>
     <section>
-        <table>
+        <div class="model"><div class="general"><div></div>
+        <table border='1'>
             <tr>
                 <th>Nom/Prénom</th>
                 <th>Téléphone</th>
@@ -42,6 +43,7 @@
             </tr>
         </table>
         <a href="./?page=directory">Retour en arrière</a>
+        </div></div></div>
     </section>
     <?php
             require 'views/partials/footer.php';

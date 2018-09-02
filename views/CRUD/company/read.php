@@ -44,7 +44,8 @@
                     <?php } ?>
                 </ul>
             </div>
-        </div></div></div>
+        </div><a href="./?page=societe">Retour sur Société</a><a href="./?page=client">Retour sur Client</a><a href="./?page=provider">Retour sur Fournisseur</a>
+    </div></div>
     </section>
     <?php
     require 'views/partials/footer.php';

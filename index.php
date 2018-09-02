@@ -18,12 +18,18 @@ switch ($_GET["page"]) {
             require "controller/controller.php";
             billPage();
             break;
-
+        case 'billV2':
+            require "controller/controller.php";
+            billPageV2();
+            break;
     case 'detailbill':
             require "controller/controller.php";
             detailBillPage();
             break;
-
+        case 'detailbillV2':
+            require "controller/controller.php";
+            detailBillPageV2();
+            break;
     case 'societe':
             require "controller/controller.php";
             companyPage();
@@ -58,6 +64,14 @@ switch ($_GET["page"]) {
     case 'login':
             require "controller/controller.php";
             loginPage();
+            break;
+    case 'dashboard':
+            require "controller/controller.php";
+            dashboard();
+            break;
+    case 'dashboardV2':
+            require "controller/controller.php";
+            dashboardV2();
             break;
     default:
             echo "Home page";
