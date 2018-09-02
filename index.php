@@ -1,4 +1,6 @@
 <?php
+if(!isset($_GET["page"]))
+{$_GET["page"]="";}
 // require "controller/controller.php";
 switch ($_GET["page"]) {
 

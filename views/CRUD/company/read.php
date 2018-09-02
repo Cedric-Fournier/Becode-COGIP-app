@@ -1,8 +1,20 @@
-
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Détail <?=$company['name']?> </title>
+    <?php
+    require 'views/partials/link.php';
+    ?>
+</head>
+<body>
+    <?php
     require 'views/partials/header.php';
     ?>
-    <section>
+    <section><div class="model">
+        <div class="general">
         <div class="row">
             <div class="col-12 text-center title"><h1>désignation sociale de la société</h1></div>
             <div class="col-12 text-center"><?=$company['name']?></div>
@@ -32,8 +44,10 @@
                     <?php } ?>
                 </ul>
             </div>
-        </div>
+        </div></div></div>
     </section>
     <?php
     require 'views/partials/footer.php';
     ?>
+    </body>
+</html>

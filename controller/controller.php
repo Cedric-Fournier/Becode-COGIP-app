@@ -1,30 +1,34 @@
 <?php
-
+$url="http://localhost/COGIP-app/";//http://localhost/COGIP-app/
     function directoryPage(){
+        global $url;
         require "models/person.model.php";
         $reponse = getDirectory();
         require "views/directory.view.php";
         $reponse->closeCursor();
     }
     function detailPersonPage(){
+        global $url;
         require "models/person.model.php";
         $person = getDetailPerson();
         require "views/detailPerson.view.php";
     }
 
     function billPage(){
+        global $url;
       require "models/model_bill.php";
       require "views/view_bill.php";
       $req->closeCursor();
     }
     function detailBillPage(){
+        global $url;
       require "models/model_billDetail.php";
       require "views/view_billDetail.php";
       $req->closeCursor();
     }
 
 
-    $url="http://challenge-sql:8888/";//http://localhost/COGIP-app
+    
     function companyPage(){
         require "models/company.model.php";
         global $url;
@@ -79,6 +83,7 @@
     
     }
     function loginPage(){
+        global $url;
         require "views/login.php";
     }
 /*
