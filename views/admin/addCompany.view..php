@@ -23,7 +23,7 @@
             <label for="country">Le nom du pays : </label><input type="text" name="country" id="country"><br>
             <label for="VAT">Le numéro de TVA : </label><input type="number" name="VAT" id="VAT"><br>
             <label for="phone">Le numéro de téléphone : </label><input type="tel" name="phone" id="phone"><br>
-            Type de société : </label>
+            Type de société : 
             <?php foreach ($type as $key => $value) { ?>
                 <input type="radio" name="type" id="type<?=$value['id']?>" value='<?=$value['id']?>' <?=$checkType[$value['id']]?>><label for="type<?=$value['id']?>"><?=$value['type']?></label>
                 <?php } ?>

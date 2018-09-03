@@ -85,10 +85,14 @@
         require "models/company.model.php";
 
         $message=companyDelete($_GET['id']);
-        require "views/admin/deleteCompany.view.php";
+        require "views/CRUD/company/delete.php";
     }
-
-    function companyUpdatePage() {
+    function billDeletePage(){
+            require "models/bill.model.php";
+            $message=deleteBill($_GET['number']);
+            require "views/CRUD/facture/delete.php";
+        }
+    function companyUpdatePage(){
         require "models/company.model.php";
 
         $donneesCompanyModife=companyUpdate();
@@ -98,6 +102,20 @@
             $message=$donneesCompanyModife['3'];
         require "views/admin/updateCompany.view.php";
 
+    }
+    function billUpdatePage(){
+        require "models/bill.model.php";
+        global $url;
+        $donneesBillModife=billUpdate();
+        
+        $bill=$donneesBillModife['0'];
+        $company=$donneesBillModife['1'];
+        $person=$donneesBillModife['2'];
+        $selectCompany=$donneesBillModife['3'];
+        $selectPerson=$donneesBillModife['4'];
+        $message=$donneesBillModife['5'];
+        require "views/CRUD/facture/modife.php";
+        
     }
     function loginPage(){
 
