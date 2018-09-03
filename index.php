@@ -48,22 +48,22 @@ switch ($_GET["page"]) {
 
             case 'deleteperson':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                deletePersonAdminPage();
                 break;
 
             case 'addbill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                addBillAdminPage();
                 break;
 
             case 'updatebill':
                 require "controller/controller.php";
-                billUpdatePage();
+                updateBillAdminPage();
                 break;
 
             case 'deletebill':
                 require "controller/controller.php";
-                billDeletePage();
+                deleteBillAdminPage();
                 break;
 
             case 'addcompany':
