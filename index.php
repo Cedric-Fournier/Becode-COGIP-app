@@ -41,6 +41,10 @@ switch ($_GET["page"]) {
             require "controller/controller.php";
             companyProviderPage();
             break;
+    case 'dashboard':
+            require "controller/controller.php";
+            dashboard();
+            break;
 
     default:
             echo "Home page";

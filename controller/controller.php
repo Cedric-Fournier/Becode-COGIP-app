@@ -17,10 +17,19 @@
       require "views/view_bill.php";
       $req->closeCursor();
     }
+
     function detailBillPage(){
       require "models/model_billDetail.php";
       require "views/view_billDetail.php";
       $req->closeCursor();
+    }
+
+    function dashboard(){
+      require "models/dashboard_model.php";
+      require "views/dashboard_view.php";
+      $reqbill->closeCursor();
+      $reqcompany->closeCursor();
+      $reqPerson->closeCursor();
     }
 
 
@@ -52,6 +61,7 @@
         $company=companyProviderView();
         require "views/provider.view.php";
     }
+
 /*
             page home
 */
