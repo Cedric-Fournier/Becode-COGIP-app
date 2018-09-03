@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
+-- version 4.5.4.1deb2ubuntu2.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 30 Août 2018 à 14:06
+-- Généré le :  Lun 03 Septembre 2018 à 09:21
 -- Version du serveur :  5.7.23-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.31-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -108,7 +108,7 @@ CREATE TABLE `person` (
   `lastname` varchar(30) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `company` tinyint(3) UNSIGNED NOT NULL
+  `company` int(100) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -140,7 +140,9 @@ INSERT INTO `person` (`id`, `firstname`, `lastname`, `phone`, `email`, `company`
 (24, 'Emily', 'Marghella', '021540266', 'em.marghella@email.com', 7),
 (25, 'Cookie', 'Chocolat', '0426241709', 'cookie.choco@email.com', 7),
 (26, 'Salami', 'Manger', '0475241895', 'salamiemanger@email.com', 7),
-(27, 'François', 'Du Voison', '0429661144', 'francoisduvoisin@email.com', 7);
+(27, 'François', 'Du Voison', '0429661144', 'francoisduvoisin@email.com', 7),
+(28, 'Robert', 'Lu', '0478996633', 'robertlu@email.com', 5),
+(29, 'Jean-René', 'René', '0412365478', 'jeanrene@email.com', 2);
 
 -- --------------------------------------------------------
 
@@ -176,6 +178,15 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`, `email`, `typeSession`) VALUES
+(1, 'jean-christian', 'ranu', 'jean-michelranu@email.com', 'admin'),
+(2, 'muriel', 'perrache', 'murielperrache@email.com', 'modo'),
+(3, 'jean-michel', 'berthier', 'jean-michelberthier@email.com', 'user');
+
+--
 -- Index pour les tables exportées
 --
 
@@ -199,7 +210,8 @@ ALTER TABLE `company`
 --
 ALTER TABLE `person`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `company` (`company`);
+  ADD KEY `company` (`company`),
+  ADD KEY `company_2` (`company`);
 
 --
 -- Index pour la table `type`
@@ -231,17 +243,17 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT pour la table `person`
 --
 ALTER TABLE `person`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT pour la table `type`
 --
 ALTER TABLE `type`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Contraintes pour les tables exportées
 --
@@ -258,12 +270,6 @@ ALTER TABLE `bill`
 --
 ALTER TABLE `company`
   ADD CONSTRAINT `company_ibfk_1` FOREIGN KEY (`type`) REFERENCES `type` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `person`
---
-ALTER TABLE `person`
-  ADD CONSTRAINT `person_ibfk_1` FOREIGN KEY (`company`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
