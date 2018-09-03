@@ -68,9 +68,9 @@
     </div>
     <div>
       <span>
-        <button type="button" name="addBill">Ajouter une facture</button>
-        <button type="button" name="addCompany">Ajouter une société</button>
-        <button type="button" name="addPerson">Ajouter une personne</button>
+        <button type="button" name="addBill"><a href="?page=admin&admin=addbill">Ajouter une facture</a></button>
+        <button type="button" name="addCompany"><a href="?page=admin&admin=addcompany">Ajouter une société</a></button>
+        <button type="button" name="addPerson"><a href="?page=admin&admin=addperson">Ajouter une personne</a></button>
       </span>
     </div>
   </div>

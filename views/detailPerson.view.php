@@ -29,7 +29,8 @@
             </td>
           </tr>
         </table>
-        <a href="./?page=directory">Retour en arrière</a>
+        <a href="./?page=directory">Retour à la liste des personnes</a>
+        <a href="./?page=directory">Retour à l'accueil</a>
       </div>
     </div>
   </div>

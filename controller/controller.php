@@ -61,49 +61,9 @@
         require "views/provider.view.php";
     }
 
-    function companyAddPage() {
-        require "models/company.model.php";
-        $message=companyCreate();
-        $donneesInfoType=lireTypeCompany();
-        $type=$donneesInfoType['0'];
-        $checkType=$donneesInfoType['1'];
-        require "views/admin/addCompany.view.php";
-    }
+    
 
-    function companyDeletePage() {
-        require "models/company.model.php";
-        $message=companyDelete($_GET['id']);
-        return $message;
-    }
-    function billDeletePage(){
-            require "models/bill.model.php";
-            $message=deleteBill($_GET['number']);
-            return $message;
-        }
-    function companyUpdatePage(){
-        require "models/company.model.php";
-        $donneesCompanyModife=companyUpdate();
-        $company=$donneesCompanyModife['0'];
-            $checkType=$donneesCompanyModife['1'];
-            $type=$donneesCompanyModife['2'];
-            $message=$donneesCompanyModife['3'];
-        require "views/admin/updateCompany.view.php";
-
-    }
-    function billUpdatePage(){
-        require "models/bill.model.php";
-        global $url;
-        $donneesBillModife=billUpdate();
-        $bill=$donneesBillModife['0'];
-        $company=$donneesBillModife['1'];
-        $person=$donneesBillModife['2'];
-        $selectCompany=$donneesBillModife['3'];
-        $selectPerson=$donneesBillModife['4'];
-        $message=$donneesBillModife['5'];
-        require "views/CRUD/facture/modife.php";
-
-    }
-    function loginPage(){
+    function loginPage() {
         require "views/login.php";
     }
 
@@ -127,6 +87,32 @@
         require "models/person.model.php";
         $personDelete = getDeletePerson();
         require "views/admin/deletePerson.view.php";
+    }
+
+    function addCompanyAdminPage() { //companyAddPage
+        require "models/company.model.php";
+        $message=companyCreate();
+        $donneesInfoType=lireTypeCompany();
+        $type=$donneesInfoType['0'];
+        $checkType=$donneesInfoType['1'];
+        require "views/admin/addCompany.view.php";
+    }
+
+    function updateCompanyAdminPage() { //companyUpdatePage
+        require "models/company.model.php";
+        $donneesCompanyModife=companyUpdate();
+        $company=$donneesCompanyModife['0'];
+        $checkType=$donneesCompanyModife['1'];
+        $type=$donneesCompanyModife['2'];
+        $message=$donneesCompanyModife['3'];
+        require "views/admin/updateCompany.view.php";
+
+    }
+
+    function deleteCompanyAdminPage() { //companyDeletePage
+        require "models/company.model.php";
+        $message=companyDelete($_GET['id']);
+        return $message;
     }
 
     function addBillAdminPage() {

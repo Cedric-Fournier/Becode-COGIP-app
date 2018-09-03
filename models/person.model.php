@@ -128,18 +128,39 @@
             $email = inputFilter($_POST["email"]);
             $company = inputFilter($_POST["company"]);
 
-            $updateRequestSQL =
-                "UPDATE person
+            if (filter_var($firstname, FILTER_SANITIZE_STRING)) {
+                $firstname_valid = $firstname;
+            }
+ 
+            if (filter_var($lastname, FILTER_SANITIZE_STRING)) {
+            $lastname_valid = $lastname;
+            } 
+
+            if (filter_var($phone, FILTER_SANITIZE_STRING)) {
+            $phone_valid = $phone;
+            } 
+
+            $email_san = filter_var($email, FILTER_SANITIZE_EMAIL);
+            if (filter_var($email_san, FILTER_VALIDATE_EMAIL)) {
+            $email_valid = $email_san;
+            }
+
+
+            if (filter_var($company, FILTER_SANITIZE_NUMBER_INT)) {
+                $company_valid = $company;
+            }    
+            
+            $updateRequestSQL = "
+                UPDATE person  
                 SET firstname = ?, lastname = ?, phone = ?, email = ?, company = ?
                 WHERE id=?;";
 
             $reponse = $pdo->prepare($updateRequestSQL);
-
-            $reponse->bindParam(1, $firstname, PDO::PARAM_STR);
-            $reponse->bindParam(2, $lastname, PDO::PARAM_STR);
-            $reponse->bindParam(3, $phone, PDO::PARAM_STR);
-            $reponse->bindParam(4, $email, PDO::PARAM_STR);
-            $reponse->bindParam(5, $company, PDO::PARAM_INT);
+            $reponse->bindParam(1, $firstname_valid, PDO::PARAM_STR);
+            $reponse->bindParam(2, $lastname_valid, PDO::PARAM_STR);
+            $reponse->bindParam(3, $phone_valid, PDO::PARAM_STR);
+            $reponse->bindParam(4, $email_valid, PDO::PARAM_STR);
+            $reponse->bindParam(5, $company_valid, PDO::PARAM_INT);
             $reponse->bindParam(6, $id, PDO::PARAM_INT);
 
             $reponse->execute();
