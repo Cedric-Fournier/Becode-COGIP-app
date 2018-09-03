@@ -1,7 +1,7 @@
 <?php require 'views/partials/header.php';?>
 <div class="model">
   <div class='login'>
-    <form action="" method="post">
+    <form action="assets/config/php/login.php" method="post">
     <div class="row">
       <div class="col-5 offset-1 text-left">
         <label class="labelLog text-primary" for="login">Identifiant</label>
