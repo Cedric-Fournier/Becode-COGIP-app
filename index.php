@@ -1,5 +1,6 @@
 <?php
-
+if(!isset($_GET["page"]))
+{$_GET["page"]="";}
 switch ($_GET["page"]) {
 
     case 'directory':
@@ -22,14 +23,29 @@ switch ($_GET["page"]) {
         detailBillPage();
         break;
 
-    case 'company':
+    case 'societe':
         require "controller/controller.php";
-        //Mettre la fonction de controller
+        companyPage();
         break;
 
-    case 'detailcompany':
+    case 'societeAdd':
         require "controller/controller.php";
-        //Mettre la fonction de controller
+        companyAddPage();
+        break;
+
+    case 'societeDelete':
+        require "controller/controller.php";
+        companyDeletePage();
+        break;
+
+    case 'societeUpdate':
+        require "controller/controller.php";
+        companyUpdatePage();
+        break;
+
+    case 'detailCompany':
+        require "controller/controller.php";
+        detailCompanyPage();
         break;
 
     case 'admin':
@@ -50,62 +66,62 @@ switch ($_GET["page"]) {
                 //Mettre la fonction de controller
                 break;
 
-            case 'addbill': // Ajouter une facture
+            case 'addbill':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'updatebill': // Modifier une facture
+            case 'updatebill':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'deletebill': // Supprimer une facture
+            case 'deletebill':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'addcompany': // Ajouter une société
+            case 'addcompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'updatecompany': // Modifier une société
+            case 'updatecompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'deletecompany': // Supprimer une société
+            case 'deletecompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
+          }
 
-            default:
-                echo "Admin page";
-                break; 
-        }
+        break;
 
-        break;            
+    case 'client':
+        require "controller/controller.php";
+        companyClientPage();
+        break;
 
+    case 'provider':
+        require "controller/controller.php";
+        companyProviderPage();
+        break;
+
+    case 'login':
+        require "controller/controller.php";
+        loginPage();
+        break;
+
+    case 'dashboard':
+        require "controller/controller.php";
+        dashboard();
+        break;
+        
     default:
         echo "Home page";
-        break;            
+        break;
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>COGIPapp</title>
-</head>
-<body>
-    <a href="?page=index">Accueil</a>
-    <a href="?page=directory">Annuaire</a>
-    <a href="?page=bill">Factures</a>
-    <a href="?page=company">Société</a>
-</body>
-</html>
-

@@ -1,0 +1,1 @@
+<?=$message;?> <!-- Bonjour, je ne sais pas ce que je fais, MAIS je le fais ! -->
