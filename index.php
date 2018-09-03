@@ -14,21 +14,25 @@ switch ($_GET["page"]) {
             detailPersonPage();
             break;
 
-    case 'bill':
+        case 'bill':
             require "controller/controller.php";
             billPage();
             break;
-        case 'billV2':
+        case 'billAdd':
             require "controller/controller.php";
-            billPageV2();
+            billAddPage();
             break;
-    case 'detailbill':
+        case 'billUpdate'://avec second paramet 'number'
+            require "controller/controller.php";
+            billUpdatePage();
+            break;
+        case 'billDelete'://avec second paramet 'number'
+            require "controller/controller.php";
+            billDeletePage();
+            break;    
+        case 'detailbill':
             require "controller/controller.php";
             detailBillPage();
-            break;
-        case 'detailbillV2':
-            require "controller/controller.php";
-            detailBillPageV2();
             break;
     case 'societe':
             require "controller/controller.php";

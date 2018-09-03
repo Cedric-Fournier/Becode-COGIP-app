@@ -23,7 +23,7 @@
         <?php foreach ($bill as $key => $value) { ?>
           <tr>
             <td><?=$value['date']?></td>
-            <td><a href="<?=$url?>?page=detailbillV2&number=<?=$value['number']?>"><?=$value['object']?></a></td>
+            <td><a href="<?=$url?>?page=detailbill&number=<?=$value['number']?>"><?=$value['object']?></a></td>
           </tr>
         <?php } ?>
 

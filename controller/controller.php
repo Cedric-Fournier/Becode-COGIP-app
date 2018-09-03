@@ -1,5 +1,5 @@
 <?php
-$url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
+$url="http://challenge-sql:8888/";//http://localhost/COGIP-app/ //http://challenge-sql:8888/
     function directoryPage(){
         global $url;
         require "models/person.model.php";
@@ -16,23 +16,11 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
 
     function billPage(){
         global $url;
-      require "models/model_bill.php";
-      require "views/view_bill.php";
-      $req->closeCursor();
-    }
-    function billPageV2(){
-        global $url;
       require "models/bill.model.php";
       $bill=lireBill();
       require "views/bill.view.php";
     }
     function detailBillPage(){
-        global $url;
-      require "models/model_billDetail.php";
-      require "views/view_billDetail.php";
-      $req->closeCursor();
-    }
-    function detailBillPageV2(){
         global $url;
       require "models/bill.model.php";
       $detailBill=detailBill();
@@ -40,14 +28,6 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
     }
 
     function dashboard(){
-        global $url;
-      require "models/dashboard_model.php";
-      require "views/dashboard_view.php";
-      $reqbill->closeCursor();
-      $reqcompany->closeCursor();
-      $reqPerson->closeCursor();
-    }
-    function dashboardV2(){
         global $url;
         require "models/dashboard.model.php";
         $bill=billFiveLatest();
@@ -85,6 +65,15 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
         $company=companyProviderView();
         require "views/provider.view.php";
     }
+    function billAddPage(){
+        require "models/bill.model.php";
+        global $url;
+        $message=billCreate();
+        $typeDataBill=typeDataBill();
+        $company=$typeDataBill['0'];
+        $person=$typeDataBill['1'];
+        require "views/CRUD/facture/create.php";
+    }
     function companyAddPage(){
         require "models/company.model.php";
         global $url;
@@ -99,7 +88,14 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
         require "models/company.model.php";
         global $url;
         $message=companyDelete($_GET['id']);
-        require "views/CRUD/company/delete.php";}
+        require "views/CRUD/company/delete.php";
+    }
+    function billDeletePage(){
+            require "models/bill.model.php";
+            global $url;
+            $message=deleteBill($_GET['number']);
+            require "views/CRUD/facture/delete.php";
+        }
     function companyUpdatePage(){
         require "models/company.model.php";
         global $url;
@@ -109,7 +105,20 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
             $type=$donneesCompanyModife['2'];
             $message=$donneesCompanyModife['3'];
         require "views/CRUD/company/modife.php";
-    
+    }
+    function billUpdatePage(){
+        require "models/bill.model.php";
+        global $url;
+        $donneesBillModife=billUpdate();
+        
+        $bill=$donneesBillModife['0'];
+        $company=$donneesBillModife['1'];
+        $person=$donneesBillModife['2'];
+        $selectCompany=$donneesBillModife['3'];
+        $selectPerson=$donneesBillModife['4'];
+        $message=$donneesBillModife['5'];
+        require "views/CRUD/facture/modife.php";
+        
     }
     function loginPage(){
         global $url;
