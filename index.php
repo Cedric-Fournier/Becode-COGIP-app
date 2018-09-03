@@ -34,6 +34,7 @@ switch ($_GET["page"]) {
             require "controller/controller.php";
             detailBillPage();
             break;
+
     case 'societe':
             require "controller/controller.php";
             companyPage();
@@ -72,10 +73,6 @@ switch ($_GET["page"]) {
     case 'dashboard':
             require "controller/controller.php";
             dashboard();
-            break;
-    case 'dashboardV2':
-            require "controller/controller.php";
-            dashboardV2();
             break;
     default:
             echo "Home page";
