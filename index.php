@@ -14,33 +14,30 @@ switch ($_GET["page"]) {
         break;
 
     case 'bill':
-            require "controller/controller.php";
-            billPage();
-            break;
-        case 'billV2':
-            require "controller/controller.php";
-            billPageV2();
-            break;
+        require "controller/controller.php";
+        billPage();
+        break;
+
     case 'detailbill':
-            require "controller/controller.php";
-            detailBillPage();
-            break;
-        case 'detailbillV2':
-            require "controller/controller.php";
-            detailBillPageV2();
-            break;
+        require "controller/controller.php";
+        detailBillPage();
+        break;
+
     case 'societe':
-            require "controller/controller.php";
-            companyPage();
-            break;
+        require "controller/controller.php";
+        companyPage();
+        break;
+
     case 'societeAdd':
         require "controller/controller.php";
         companyAddPage();
         break;
+
     case 'societeDelete':
         require "controller/controller.php";
         companyDeletePage();
         break;
+
     case 'societeUpdate':
         require "controller/controller.php";
         companyUpdatePage();
@@ -94,50 +91,37 @@ switch ($_GET["page"]) {
                 //Mettre la fonction de controller
                 break;
 
-            case 'deletecompany': 
+            case 'deletecompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
-
           }
-          break;
+
+        break;
+
     case 'client':
-      require "controller/controller.php";
-      companyClientPage();
-      break;
+        require "controller/controller.php";
+        companyClientPage();
+        break;
+
     case 'provider':
-            require "controller/controller.php";
-            companyProviderPage();
-            break;
+        require "controller/controller.php";
+        companyProviderPage();
+        break;
+
     case 'login':
-            require "controller/controller.php";
-            loginPage();
-            break;
+        require "controller/controller.php";
+        loginPage();
+        break;
+
     case 'dashboard':
-            require "controller/controller.php";
-            dashboard();
-            break;
-    case 'dashboardV2':
-            require "controller/controller.php";
-            dashboardV2();
-            break;
+        require "controller/controller.php";
+        dashboard();
+        break;
+        
     default:
         echo "Home page";
         break;
 }
+
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>COGIPapp</title>
-</head>
-<body>
-    <a href="?page=index">Accueil</a>
-    <a href="?page=directory">Annuaire</a>
-    <a href="?page=bill">Factures</a>
-    <a href="?page=company">Société</a>
-</body>
-</html>
