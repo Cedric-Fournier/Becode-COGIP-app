@@ -91,6 +91,7 @@ switch ($_GET["page"]) {
         echo "Home page";
         break;            
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
