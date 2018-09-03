@@ -2,8 +2,6 @@
 // require "controller/controller.php";
 switch ($_GET["page"]) {
 
-switch ($_GET["page"]) {
-
     case 'directory':
         require "controller/controller.php";
         directoryPage();
@@ -84,14 +82,14 @@ switch ($_GET["page"]) {
 
             default:
                 echo "Admin page";
-                break; 
+                break;
         }
 
-        break;            
+        break;
 
     default:
         echo "Home page";
-        break;            
+        break;
 }
 ?>
 <!DOCTYPE html>
@@ -109,4 +107,3 @@ switch ($_GET["page"]) {
     <a href="?page=company">Société</a>
 </body>
 </html>
-
