@@ -17,13 +17,13 @@ function deleteBill($number){
   $requete = $pdo->prepare($requestSQL);
   $requete->execute();
   $requete->closeCursor();
-  $message='vous aviez bien supprimer la facture';
+  $message='vous avez bien supprimé la facture';
   return $message;
 }
 
 function billCreate(){
   require "assets/config/php/config.php";
-  $message=""; 
+  $message="";
   if(isset($_POST['creer'])){
       // print_r($_POST);
       $requestSQL="INSERT INTO bill (date, object, company, person) VALUES ( :date, :object, :company, :person);";
@@ -32,7 +32,7 @@ function billCreate(){
       $requete->bindParam(":object", $_POST['object']);
       $requete->bindParam(":company", $_POST['company']);
       $requete->bindParam(":person", $_POST['person']);
-      
+
       $requete->execute();
       $message="La Facture a été ajoutée avec succès.";
       $requete->closeCursor();
@@ -72,7 +72,7 @@ function billUpdate(){
             $requete->bindParam(":person", $_POST['person']);
             $requete->execute();
             $requete->closeCursor();
-            $message="Vous aviez modifier la facture";
+            $message="Vous avez modifié la facture";
         }else{
             $number=$_GET['number']; //variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
         }
@@ -120,7 +120,7 @@ function detailBill(){
     AND bill.company=company.id
     AND bill.person=person.id";
     $requete = $pdo->prepare($requestSQL);
-    
+
     $requete->bindParam(":number", $id);
   $requete->execute();
   $detailBill = $requete->fetch();

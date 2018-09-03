@@ -12,11 +12,7 @@
         <?php foreach ($bill as $key => $value) { ?>
           <tr>
             <td><?=$value['date']?></td>
-<<<<<<< HEAD
             <td><a href="?page=detailbill&number=<?=$value['number']?>"><?=$value['object']?></a></td>
-=======
-            <td><a href="<?=$url?>?page=detailbill&number=<?=$value['number']?>"><?=$value['object']?></a></td>
->>>>>>> stephane
           </tr>
         <?php } ?>
       </table>
