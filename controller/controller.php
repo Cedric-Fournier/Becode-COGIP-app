@@ -1,7 +1,7 @@
 <?php
-$url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
+$url="http://localhost/COGIP-app/";//http://challenge-sql:8888/
 
-    function directoryPage(){
+    function directoryPage() {
         global $url;
         require "models/person.model.php";
         $reponse = getDirectory();
@@ -9,7 +9,7 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
         $reponse->closeCursor();
     }
 
-    function detailPersonPage(){
+    function detailPersonPage() {
       global $url;
       require "models/person.model.php";
       $person = getDetailPerson();
@@ -17,21 +17,21 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
     }
 
 
-    function billPage(){
+    function billPage() {
       global $url;
       require "models/bill.model.php";
       $bill=lireBill();
       require "views/bill.view.php";
     }
 
-    function detailBillPage(){
+    function detailBillPage() {
         global $url;
       require "models/bill.model.php";
       $detailBill=detailBill();
       require "views/billDetail.view.php";
     }
 
-    function dashboard(){
+    function dashboard() {
         global $url;
         require "models/dashboard.model.php";
         $bill=billFiveLatest();
@@ -40,14 +40,14 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
         require "views/dashboard.view.php";
     }
 
-    function companyPage(){
+    function companyPage() {
         require "models/company.model.php";
         global $url;
         $company=companyView();
         require "views/company.view.php";
     }
 
-    function detailCompanyPage(){
+    function detailCompanyPage() {
         global $url;
         require "models/company.model.php";
         $id=companyDetail($_GET['id']);
@@ -58,34 +58,38 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
         require 'views/companyDetail.view.php';
     }
 
-    function companyClientPage(){
+    function companyClientPage() {
         require "models/company.model.php";
         global $url;
         $company=companyClientView();
         require "views/client.view.php";
     }
-    function companyProviderPage(){
+
+    function companyProviderPage() {
         require "models/company.model.php";
         global $url;
         $company=companyProviderView();
         require "views/provider.view.php";
     }
-    function companyAddPage(){
+
+    function companyAddPage() {
         require "models/company.model.php";
         global $url;
         $message=companyCreate();
         $donneesInfoType=lireTypeCompany();
         $type=$donneesInfoType['0'];
         $checkType=$donneesInfoType['1'];
-        require "views/CRUD/company/create.php";
+        require "views/admin/addCompany.view.php";
     }
 
-    function companyDeletePage(){
+    function companyDeletePage() {
         require "models/company.model.php";
         global $url;
         $message=companyDelete($_GET['id']);
-        require "views/CRUD/company/delete.php";}
-    function companyUpdatePage(){
+        require "views/admin/deleteCompany.view.php";
+    }
+
+    function companyUpdatePage() {
         require "models/company.model.php";
         global $url;
         $donneesCompanyModife=companyUpdate();
@@ -93,7 +97,7 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
             $checkType=$donneesCompanyModife['1'];
             $type=$donneesCompanyModife['2'];
             $message=$donneesCompanyModife['3'];
-        require "views/CRUD/company/modife.php";
+        require "views/admin/updateCompany.view.php";
 
     }
     function loginPage(){
