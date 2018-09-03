@@ -1,6 +1,7 @@
 <?php
-$url="http://challenge-sql:8888/";//http://challenge-sql:8888/
-//http://localhost/COGIP-app/
+$url="http://localhost/COGIP-app/";
+    //http://challenge-sql:8888/
+    //http://localhost/COGIP-app/
 
     function directoryPage() {
         global $url;

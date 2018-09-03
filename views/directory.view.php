@@ -16,6 +16,7 @@
           </tr>
         <?php } ?>
       </table>
+      <a href="./?page=directory">Retour à l'accueil</a>
     </div>
   </div>
 </section>

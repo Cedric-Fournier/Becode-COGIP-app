@@ -1,6 +1,11 @@
 <?php
-if(!isset($_GET["page"]))
-{$_GET["page"]="";}
+
+session_start();
+
+if(!isset($_GET["page"])) {
+    $_GET["page"]="";
+}
+
 switch ($_GET["page"]) {
 
     case 'directory':
