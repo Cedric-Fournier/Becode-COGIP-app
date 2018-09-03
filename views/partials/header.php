@@ -1,0 +1,1 @@
+<header><?php require 'views/partials/menu.php'; ?></header>

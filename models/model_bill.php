@@ -5,7 +5,7 @@ $req = $pdo->query("SELECT * FROM bill ORDER BY date DESC");
 echo "
   <h1>Factures</h1>
   <table border='1'>
-  <caption>Listedes dernières factures</caption>
+  <caption>Liste des dernières factures</caption>
   <tr>
   <th>Date</th>
   <th>Sujet</th>

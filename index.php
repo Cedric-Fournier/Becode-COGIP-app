@@ -1,5 +1,6 @@
 <?php
-
+if(!isset($_GET["page"]))
+{$_GET["page"]="";}
 switch ($_GET["page"]) {
 
     case 'directory':
@@ -13,23 +14,35 @@ switch ($_GET["page"]) {
         break;
 
     case 'bill':
-        require "controller/controller.php";
-        billPage();
-        break;
+            require "controller/controller.php";
+            billPage();
+            break;
 
     case 'detailbill':
+            require "controller/controller.php";
+            detailBillPage();
+            break;
+
+    case 'societe':
+            require "controller/controller.php";
+            companyPage();
+            break;
+    case 'societeAdd':
         require "controller/controller.php";
-        detailBillPage();
+        companyAddPage();
+        break;
+    case 'societeDelete':
+        require "controller/controller.php";
+        companyDeletePage();
+        break;
+    case 'societeUpdate':
+        require "controller/controller.php";
+        companyUpdatePage();
         break;
 
-    case 'company':
+    case 'detailCompany':
         require "controller/controller.php";
-        //Mettre la fonction de controller
-        break;
-
-    case 'detailcompany':
-        require "controller/controller.php";
-        //Mettre la fonction de controller
+        detailCompanyPage();
         break;
 
     case 'admin':
@@ -50,46 +63,57 @@ switch ($_GET["page"]) {
                 //Mettre la fonction de controller
                 break;
 
-            case 'addbill': // Ajouter une facture
+            case 'addbill':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'updatebill': // Modifier une facture
+            case 'updatebill':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'deletebill': // Supprimer une facture
+            case 'deletebill':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'addcompany': // Ajouter une société
+            case 'addcompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'updatecompany': // Modifier une société
+            case 'updatecompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'deletecompany': // Supprimer une société
+            case 'deletecompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            default:
-                echo "Admin page";
-                break; 
-        }
-
-        break;            
-
+          }
+          break;
+    case 'client':
+      require "controller/controller.php";
+      companyClientPage();
+      break;
+    case 'provider':
+            require "controller/controller.php";
+            companyProviderPage();
+            break;
+    case 'login':
+            require "controller/controller.php";
+            loginPage();
+            break;
+    case 'dashboard':
+            require "controller/controller.php";
+            dashboard();
+            break;
     default:
         echo "Home page";
-        break;            
+        break;
 }
 ?>
 <!DOCTYPE html>
@@ -107,4 +131,3 @@ switch ($_GET["page"]) {
     <a href="?page=company">Société</a>
 </body>
 </html>
-
