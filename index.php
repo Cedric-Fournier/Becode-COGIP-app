@@ -14,27 +14,30 @@ switch ($_GET["page"]) {
         break;
 
     case 'bill':
-            require "controller/controller.php";
-            billPage();
-            break;
+        require "controller/controller.php";
+        billPage();
+        break;
 
     case 'detailbill':
-            require "controller/controller.php";
-            detailBillPage();
-            break;
+        require "controller/controller.php";
+        detailBillPage();
+        break;
 
     case 'societe':
-            require "controller/controller.php";
-            companyPage();
-            break;
+        require "controller/controller.php";
+        companyPage();
+        break;
+
     case 'societeAdd':
         require "controller/controller.php";
         companyAddPage();
         break;
+
     case 'societeDelete':
         require "controller/controller.php";
         companyDeletePage();
         break;
+
     case 'societeUpdate':
         require "controller/controller.php";
         companyUpdatePage();
@@ -92,29 +95,35 @@ switch ($_GET["page"]) {
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
-
           }
-          break;
+
+        break;
+
     case 'client':
-      require "controller/controller.php";
-      companyClientPage();
-      break;
+        require "controller/controller.php";
+        companyClientPage();
+        break;
+
     case 'provider':
-            require "controller/controller.php";
-            companyProviderPage();
-            break;
+        require "controller/controller.php";
+        companyProviderPage();
+        break;
+
     case 'login':
-            require "controller/controller.php";
-            loginPage();
-            break;
+        require "controller/controller.php";
+        loginPage();
+        break;
+
     case 'dashboard':
-            require "controller/controller.php";
-            dashboard();
-            break;
+        require "controller/controller.php";
+        dashboard();
+        break;
+        
     default:
         echo "Home page";
         break;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
