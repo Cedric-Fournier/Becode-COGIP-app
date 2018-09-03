@@ -1,44 +1,59 @@
 <?php
 
-    function directoryPage(){
+    function directoryPage() {
         require "models/person.model.php";
         $reponse = getDirectory();
         require "views/directory.view.php";
         $reponse->closeCursor();
     }
     
-    function detailPersonPage(){
+    function detailPersonPage() {
         require "models/person.model.php";
         $person = getDetailPerson();
         require "views/detailPerson.view.php";
     }
 
-    function billPage(){
+    function billPage() {
         require "models/model_bill.php";
         require "views/view_bill.php";
         $req->closeCursor();
     }
 
-    function detailBillPage(){
+    function detailBillPage() {
         require "models/model_billDetail.php";
         require "views/view_billDetail.php";
         $req->closeCursor();
     }
 
     //// ADMIN ////
-    function addPersonAdminPage(){
+    function addPersonAdminPage() {
         require "models/person.model.php";
         $person = getAddPerson();
         $getCompany = getCompanyName();
         require "views/admin/addPerson.view.php";
     }
 
-    function updatePersonAdminPage(){
+    function updatePersonAdminPage() {
         require "models/person.model.php";
         $personUp = getUpdatePerson();
         $getPerson = getUpdateDetailPerson();
         $getCompany = getCompanyName();
         require "views/admin/updatePerson.view.php";
+    }
+
+    function deletePersonAdminPage() {
+        require "models/person.model.php";
+        $personDelete = getDeletePerson();
+        require "views/admin/deletePerson.view.php";
+    }
+
+    function addBillAdminPage() {
+    }
+
+    function updateBillAdminPage() {
+    }
+
+    function deleteBillAdminPage() {
     }
 
 ?>

@@ -7,7 +7,7 @@
         return $data;
     }
 
-    function getDirectory(){
+    function getDirectory() {
         require "assets/config/php/config.php";
         $requestSQL = "SELECT * FROM person ORDER BY lastname ASC";
         $reponse = $pdo->prepare($requestSQL);
@@ -15,7 +15,7 @@
         return $reponse;
     }
 
-    function getDetailPerson(){
+    function getDetailPerson() {
         require "assets/config/php/config.php";
         $id = intval($_GET['id']);
         $requestSQL = "
@@ -38,7 +38,7 @@
 
     //// ADMIN ////
 
-    function getAddPerson(){
+    function getAddPerson() {
         if(isset($_POST["submit"])){
             require "assets/config/php/config.php";
 
@@ -97,7 +97,7 @@
         return $getCompanyName;
     }
     
-    function getUpdatePerson(){
+    function getUpdatePerson() {
         if(isset($_POST["submit"])){
             require "assets/config/php/config.php";
             $id = intval($_GET['id']);
@@ -125,13 +125,13 @@
         }
     }
 
-    function getUpdateDetailPerson(){
+    function getUpdateDetailPerson() {
         require "assets/config/php/config.php";
         $id = intval($_GET['id']);
         $requestSQL = "
-        SELECT *
-        FROM person
-        WHERE person.id=?;";
+            SELECT *
+            FROM person
+            WHERE person.id=?;";
         $reponse = $pdo->prepare($requestSQL);
         $reponse->bindParam(1, $id, PDO::PARAM_INT);
         $reponse->execute();
@@ -140,8 +140,18 @@
         return $donnees;
     }
 
-    // function getDeletePerson(){
-    //     require "assets/config/php/config.php";
-    // }
+    function getDeletePerson() {
+        require "assets/config/php/config.php";
+        $id = intval($_GET['id']);
+        $requestSQL = "
+            DELETE FROM person
+            WHERE id=?;";
+        $reponse = $pdo->prepare($requestSQL);
+        $reponse->bindParam(1, $id, PDO::PARAM_INT);
+        $reponse->execute();
+        $donnees = $reponse->fetch();
+        $reponse->closeCursor();
+        return $donnees;
+    }
 
 ?>
