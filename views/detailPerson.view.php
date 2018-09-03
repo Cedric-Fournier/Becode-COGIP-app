@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Detail <?= $person[0]['firstname'] . " " . $person[0]['lastname']; ?></title>
+    <?php
+        require 'views/partials/link.php';
+        ?>
 </head>
 <body>
-
+<?php
+            require 'views/partials/header.php';
+        ?>
     <section>
-        <table>
+        <div class="model"><div class="general"><div></div>
+        <table border='1'>
             <tr>
                 <th>Nom/Prénom</th>
                 <th>Téléphone</th>
@@ -37,6 +43,10 @@
             </tr>
         </table>
         <a href="./?page=directory">Retour en arrière</a>
-    </section>    
+        </div></div></div>
+    </section>
+    <?php
+            require 'views/partials/footer.php';
+        ?>
 </body>
 </html>

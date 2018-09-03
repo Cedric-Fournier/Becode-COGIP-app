@@ -1,4 +1,11 @@
 <?php
+
+    // NE PAS UTILISER
+    // NE PAS UTILISER
+    // NE PAS UTILISER
+    // NE PAS UTILISER
+    // NE PAS UTILISER
+    
     // require "assets/config/php/config.php";
 
     function displayDetailPersonByID($getID) {

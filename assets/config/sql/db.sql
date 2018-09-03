@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
+-- version 4.5.4.1deb2ubuntu2.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 30 Août 2018 à 14:06
+-- Généré le :  Lun 03 Septembre 2018 à 09:21
 -- Version du serveur :  5.7.23-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.31-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -42,18 +42,18 @@ INSERT INTO `bill` (`number`, `date`, `object`, `company`, `person`) VALUES
 (1, '2018-08-07', 'allez-ciné', 1, 3),
 (2, '2018-07-08', 'challenge php', 1, 4),
 (3, '2018-06-10', 'onepage unicode', 1, 5),
-(4, '2018-04-09', 'onepage orange', 1, 6),
-(5, '2018-08-12', 'livraison 2 pal', 2, 7),
-(6, '2018-08-14', 'livraison 5pal', 2, 8),
+(4, '2018-04-09', 'onepage orange', 2, 6),
+(5, '2018-08-12', 'livraison 2 pal', 1, 7),
+(6, '2018-08-14', 'livraison 5 pal', 1, 8),
 (7, '2018-08-17', 'opération marketing', 2, 9),
 (8, '2018-08-21', 'joyeux noel', 2, 10),
 (9, '2018-08-29', 'assomption', 2, 11),
-(10, '2018-08-15', '3 pizza + 2pates', 5, 12),
+(10, '2018-08-15', '3 pizza + 2 pates', 2, 12),
 (11, '2018-08-28', 'panier surprise Web Dev', 5, 13),
 (12, '2018-08-29', 'panier surprise coca-cola', 5, 14),
 (13, '2018-08-23', 'panier surprise BeCode', 5, 15),
 (14, '2018-08-27', 'panier surprise BeCentral', 5, 16),
-(15, '2018-08-08', 'devis chantier Charleroi', 6, 17),
+(15, '2018-08-08', 'devis chantier Charleroi', 5, 17),
 (16, '2018-08-21', 'livraison matériel Charleroi', 6, 18),
 (17, '2018-08-29', 'Main d\'oeuvre Charleroi', 6, 19),
 (18, '2018-07-01', 'Devis Chantier Bruxelles', 6, 20),
@@ -108,7 +108,7 @@ CREATE TABLE `person` (
   `lastname` varchar(30) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `company` tinyint(3) UNSIGNED NOT NULL
+  `company` int(100) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -117,10 +117,10 @@ CREATE TABLE `person` (
 
 INSERT INTO `person` (`id`, `firstname`, `lastname`, `phone`, `email`, `company`) VALUES
 (3, 'Cedric', 'Fournier', '0499123456', 'cedricfournier@email.com', 1),
-(4, 'Adrien', 'd\'Oreye', '0489824514', 'adriendoreye@email;com', 1),
+(4, 'Adrien', 'd\'Oreye', '0489824514', 'adriendoreye@email.com', 1),
 (5, 'Stephane', 'Wilfort', '04172569', 'stephanewilfort@email.com', 1),
 (6, 'Genièvre', 'Van Chou', '0429541239', 'genievrevanchou@email.com', 2),
-(7, 'Julie', 'Dupont', '0478503654', 'juliedupont', 1),
+(7, 'Julie', 'Dupont', '0478503654', 'juliedupont@email.com', 1),
 (8, 'Marie', 'Dupont', '0478500200', 'mariedupont@email.com', 1),
 (9, 'John', 'Smith', '0497007977', 'johnsmith@email.com', 2),
 (10, 'Henry', 'Salvador', '024821214', 'henrysalvador@email.com', 2),
@@ -140,7 +140,9 @@ INSERT INTO `person` (`id`, `firstname`, `lastname`, `phone`, `email`, `company`
 (24, 'Emily', 'Marghella', '021540266', 'em.marghella@email.com', 7),
 (25, 'Cookie', 'Chocolat', '0426241709', 'cookie.choco@email.com', 7),
 (26, 'Salami', 'Manger', '0475241895', 'salamiemanger@email.com', 7),
-(27, 'François', 'Du Voison', '0429661144', 'francoisduvoisin@email.com', 7);
+(27, 'François', 'Du Voison', '0429661144', 'francoisduvoisin@email.com', 7),
+(28, 'Robert', 'Lu', '0478996633', 'robertlu@email.com', 5),
+(29, 'Jean-René', 'René', '0412365478', 'jeanrene@email.com', 2);
 
 -- --------------------------------------------------------
 
@@ -176,6 +178,15 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`, `email`, `typeSession`) VALUES
+(1, 'jean-christian', 'ranu', 'jean-michelranu@email.com', 'admin'),
+(2, 'muriel', 'perrache', 'murielperrache@email.com', 'modo'),
+(3, 'jean-michel', 'berthier', 'jean-michelberthier@email.com', 'user');
+
+--
 -- Index pour les tables exportées
 --
 
@@ -199,7 +210,8 @@ ALTER TABLE `company`
 --
 ALTER TABLE `person`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `company` (`company`);
+  ADD KEY `company` (`company`),
+  ADD KEY `company_2` (`company`);
 
 --
 -- Index pour la table `type`
@@ -231,17 +243,17 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT pour la table `person`
 --
 ALTER TABLE `person`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT pour la table `type`
 --
 ALTER TABLE `type`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Contraintes pour les tables exportées
 --
@@ -258,12 +270,6 @@ ALTER TABLE `bill`
 --
 ALTER TABLE `company`
   ADD CONSTRAINT `company_ibfk_1` FOREIGN KEY (`type`) REFERENCES `type` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `person`
---
-ALTER TABLE `person`
-  ADD CONSTRAINT `person_ibfk_1` FOREIGN KEY (`company`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
