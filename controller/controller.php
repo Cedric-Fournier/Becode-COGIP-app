@@ -16,14 +16,8 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
       require "views/detailPerson.view.php";
     }
 
-    function billPage(){
-      global $url;
-      require "models/model_bill.php";
-      require "views/view_bill.php";
-      $req->closeCursor();
-    }
 
-    function billPageV2(){
+    function billPage(){
       global $url;
       require "models/bill.model.php";
       $bill=lireBill();
@@ -32,26 +26,12 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
 
     function detailBillPage(){
         global $url;
-      require "models/model_billDetail.php";
-      require "views/view_billDetail.php";
-      $req->closeCursor();
-    }
-    function detailBillPageV2(){
-        global $url;
       require "models/bill.model.php";
       $detailBill=detailBill();
       require "views/billDetail.view.php";
     }
 
     function dashboard(){
-        global $url;
-      require "models/dashboard_model.php";
-      require "views/dashboard_view.php";
-      $reqbill->closeCursor();
-      $reqcompany->closeCursor();
-      $reqPerson->closeCursor();
-    }
-    function dashboardV2(){
         global $url;
         require "models/dashboard.model.php";
         $bill=billFiveLatest();
