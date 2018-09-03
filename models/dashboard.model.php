@@ -1,5 +1,6 @@
 <?php
-function billFiveLatest(){
+
+function billFiveLatest() {
     require "assets/config/php/config.php";
     $requestSQL="SELECT bill.*,company.name
     FROM bill,company
@@ -12,11 +13,12 @@ function billFiveLatest(){
     $requete->closeCursor();
     return $bill;
 }
-function companyFiveLatest(){
+
+function companyFiveLatest() {
     require "assets/config/php/config.php";
     $requestSQL="SELECT company.*,type.*
     FROM company,type
-    WHERE company.type=type.id
+    WHERE company.type=type.id ORDER BY company.id DESC
     LIMIT 5";
     $requete = $pdo->prepare($requestSQL);
     $requete->execute();
@@ -24,7 +26,8 @@ function companyFiveLatest(){
     $requete->closeCursor();
     return $company;
 }
-function personFiveLatest(){
+
+function personFiveLatest() {
     require "assets/config/php/config.php";
     $requestSQL="SELECT person.*,company.name
     FROM person,company
@@ -37,4 +40,5 @@ function personFiveLatest(){
     $requete->closeCursor();
     return $person;
 }
+
 ?>

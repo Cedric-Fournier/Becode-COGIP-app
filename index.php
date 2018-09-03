@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+// session_start();
 
 if(!isset($_GET["page"])) {
     $_GET["page"]="";
@@ -22,12 +22,22 @@ switch ($_GET["page"]) {
         require "controller/controller.php";
         billPage();
         break;
-
+    case 'billAdd':
+        require "controller/controller.php";
+        billAddPage();
+        break;
+    case 'billUpdate'://avec second paramet 'number'
+        require "controller/controller.php";
+        billUpdatePage();
+        break;
+    case 'billDelete'://avec second paramet 'number'
+        require "controller/controller.php";
+        billDeletePage();
+        break;
     case 'detailbill':
         require "controller/controller.php";
         detailBillPage();
         break;
-
     case 'societe':
         require "controller/controller.php";
         companyPage();
@@ -73,32 +83,32 @@ switch ($_GET["page"]) {
 
             case 'addbill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                addBillAdminPage();
                 break;
 
             case 'updatebill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                updateBillAdminPage();
                 break;
 
             case 'deletebill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                deleteBillAdminPage();
                 break;
 
             case 'addcompany':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                addCompanyAdminPage();
                 break;
 
             case 'updatecompany':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                updateCompanyAdminPage();
                 break;
 
             case 'deletecompany':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                deleteCompanyAdminPage();
                 break;
           }
 
@@ -123,7 +133,7 @@ switch ($_GET["page"]) {
         require "controller/controller.php";
         dashboard();
         break;
-        
+
     default:
         echo "Home page";
         break;

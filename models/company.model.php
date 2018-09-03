@@ -5,10 +5,10 @@
         $message="";
         if(isset($_POST['creer'])) {
             $requestSQL=
-                "INSERT INTO company (name, street, number, zip, city, country, VAT, phone, type) 
+                "INSERT INTO company (name, street, number, zip, city, country, VAT, phone, type)
                 VALUES (:name, :street, :number, :zip, :city, :country, :VAT, :phone, :type);";
             $requete = $pdo->prepare($requestSQL);
-            
+
             $requete->bindParam(":name", $_POST['name']);
 			$requete->bindParam(":street", $_POST['street']);
             $requete->bindParam(":number", $_POST['number']);
@@ -66,7 +66,7 @@
         $data[2]=$bill;
         return $data;
     }
-    
+
     function companyUpdate() {
         $data=array();
         $message="";
@@ -128,7 +128,7 @@
         $requete = $pdo->prepare($requestSQL);
         $requete->execute();
         $requete->closeCursor();
-        $message='vous aviez bien supprimer la societe';
+        $message='vous avez bien supprimé la société';
         return $message;
     }
 

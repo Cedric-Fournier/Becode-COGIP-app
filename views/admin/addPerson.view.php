@@ -35,6 +35,7 @@
             <br>
 
             <input type="submit" name="submit" value="Ajouter">
+            <a href="?page=dashboard">Retour à l'administration</a>
 
         </form>
     </section>
