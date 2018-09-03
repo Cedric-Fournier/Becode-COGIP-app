@@ -17,18 +17,12 @@ switch ($_GET["page"]) {
             require "controller/controller.php";
             billPage();
             break;
-        case 'billV2':
-            require "controller/controller.php";
-            billPageV2();
-            break;
+
     case 'detailbill':
             require "controller/controller.php";
             detailBillPage();
             break;
-        case 'detailbillV2':
-            require "controller/controller.php";
-            detailBillPageV2();
-            break;
+
     case 'societe':
             require "controller/controller.php";
             companyPage();
@@ -94,7 +88,7 @@ switch ($_GET["page"]) {
                 //Mettre la fonction de controller
                 break;
 
-            case 'deletecompany': 
+            case 'deletecompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
@@ -116,10 +110,6 @@ switch ($_GET["page"]) {
     case 'dashboard':
             require "controller/controller.php";
             dashboard();
-            break;
-    case 'dashboardV2':
-            require "controller/controller.php";
-            dashboardV2();
             break;
     default:
         echo "Home page";
