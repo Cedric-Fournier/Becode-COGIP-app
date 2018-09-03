@@ -38,21 +38,6 @@ switch ($_GET["page"]) {
         companyPage();
         break;
 
-    case 'societeAdd':
-        require "controller/controller.php";
-        companyAddPage();
-        break;
-
-    case 'societeDelete':
-        require "controller/controller.php";
-        companyDeletePage();
-        break;
-
-    case 'societeUpdate':
-        require "controller/controller.php";
-        companyUpdatePage();
-        break;
-
     case 'detailCompany':
         require "controller/controller.php";
         detailCompanyPage();
@@ -73,37 +58,37 @@ switch ($_GET["page"]) {
 
             case 'deleteperson':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                deletePersonAdminPage();
                 break;
 
             case 'addbill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                addBillAdminPage();
                 break;
 
             case 'updatebill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                updateBillAdminPage();
                 break;
 
             case 'deletebill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                deleteBillAdminPage();
                 break;
 
             case 'addcompany':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                companyAddPage();
                 break;
 
             case 'updatecompany':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                companyUpdatePage();
                 break;
 
             case 'deletecompany':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                companyDeletePage();
                 break;
           }
 
