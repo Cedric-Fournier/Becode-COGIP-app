@@ -1,9 +1,7 @@
 <?php
-$url="http://challenge-sql:8888/";//http://challenge-sql:8888/
-//http://localhost/COGIP-app/
 
     function directoryPage() {
-        global $url;
+
         require "models/person.model.php";
         $reponse = getDirectory();
         require "views/directory.view.php";
@@ -11,7 +9,7 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
     }
 
     function detailPersonPage() {
-      global $url;
+
       require "models/person.model.php";
       $person = getDetailPerson();
       require "views/detailPerson.view.php";
@@ -19,21 +17,21 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
 
 
     function billPage() {
-      global $url;
+
       require "models/bill.model.php";
       $bill=lireBill();
       require "views/bill.view.php";
     }
 
     function detailBillPage() {
-        global $url;
+
       require "models/bill.model.php";
       $detailBill=detailBill();
       require "views/billDetail.view.php";
     }
 
     function dashboard() {
-        global $url;
+
         require "models/dashboard.model.php";
         $bill=billFiveLatest();
         $company=companyFiveLatest();
@@ -43,13 +41,13 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
 
     function companyPage() {
         require "models/company.model.php";
-        global $url;
+
         $company=companyView();
         require "views/company.view.php";
     }
 
     function detailCompanyPage() {
-        global $url;
+
         require "models/company.model.php";
         $id=companyDetail($_GET['id']);
         $donnees=companyRead($id);
@@ -61,21 +59,21 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
 
     function companyClientPage() {
         require "models/company.model.php";
-        global $url;
+
         $company=companyClientView();
         require "views/client.view.php";
     }
 
     function companyProviderPage() {
         require "models/company.model.php";
-        global $url;
+
         $company=companyProviderView();
         require "views/provider.view.php";
     }
 
     function companyAddPage() {
         require "models/company.model.php";
-        global $url;
+
         $message=companyCreate();
         $donneesInfoType=lireTypeCompany();
         $type=$donneesInfoType['0'];
@@ -85,14 +83,14 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
 
     function companyDeletePage() {
         require "models/company.model.php";
-        global $url;
+
         $message=companyDelete($_GET['id']);
         require "views/admin/deleteCompany.view.php";
     }
 
     function companyUpdatePage() {
         require "models/company.model.php";
-        global $url;
+
         $donneesCompanyModife=companyUpdate();
         $company=$donneesCompanyModife['0'];
             $checkType=$donneesCompanyModife['1'];
@@ -102,7 +100,7 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
 
     }
     function loginPage(){
-        global $url;
+
         require "views/login.php";
     }
 
