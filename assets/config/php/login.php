@@ -5,7 +5,6 @@ $requestSQL="SELECT * FROM user";
     $requete->execute();
     $connection = $requete->fetchAll();
     $requete->closeCursor();
-    print_r($connection);
 // on teste si nos variables sont définies
 if (isset($_POST['login'])==true && isset($_POST['pwd'])==true) {
     $errorConnect=0;
@@ -17,7 +16,8 @@ if (isset($_POST['login'])==true && isset($_POST['pwd'])==true) {
 		$_SESSION['pwd'] = $_POST['pwd'];
 
 		// on redirige notre visiteur vers une page de notre section membre
-        //header ('location: http://localhost/COGIP-app/?page=dashboard');
+        header ('location: http://localhost/COGIP-app/?page=dashboard');
+        exit();
         }
         else{$errorConnect++;}
     }
@@ -30,7 +30,8 @@ if (isset($_POST['login'])==true && isset($_POST['pwd'])==true) {
 	}
 }
 else {
-    echo 'Les variables du formulaire ne sont pas déclarées.';
+    header ('location: http://localhost/COGIP-app/?page=login');
+        exit();
 }
 
 ?>
