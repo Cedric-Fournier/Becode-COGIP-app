@@ -13,7 +13,6 @@
       require "views/detailPerson.view.php";
     }
 
-
     function billPage() {
       require "models/bill.model.php";
       $bill=lireBill();

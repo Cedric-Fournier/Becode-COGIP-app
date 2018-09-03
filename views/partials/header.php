@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="icon" type="image/png" href="assets/images/COGIP-logo.png" />
-        <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="vendor/components/font-awesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="vendor/components/font-awesome/css/fontawesome.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <title>COGIP App</title>
     </head>

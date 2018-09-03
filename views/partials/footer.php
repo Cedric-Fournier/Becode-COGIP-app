@@ -1,4 +1,4 @@
-<footer>Copirigth COGIP</footer>
-    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+<footer>© COGIP</footer>
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.js"></script>
     </body>
 </html>
