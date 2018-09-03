@@ -3,8 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Dashboard</title>
+    <?php
+        require 'views/partials/link.php';
+        ?>
   </head>
   <body>
+  <?php
+            require 'views/partials/header.php';
+        ?>
     <table>
 
     </table>
@@ -16,5 +22,8 @@
     <div class="logMessage">
 
     </div>
+    <?php
+            require 'views/partials/footer.php';
+        ?>
   </body>
 </html>

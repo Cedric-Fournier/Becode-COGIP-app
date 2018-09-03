@@ -1,4 +1,6 @@
 <?php
+if(!isset($_GET["page"]))
+{$_GET["page"]="";}
 // require "controller/controller.php";
 switch ($_GET["page"]) {
 
@@ -13,23 +15,41 @@ switch ($_GET["page"]) {
         break;
 
     case 'bill':
-        require "controller/controller.php";
-        billPage();
-        break;
-
+            require "controller/controller.php";
+            billPage();
+            break;
+        case 'billV2':
+            require "controller/controller.php";
+            billPageV2();
+            break;
     case 'detailbill':
+            require "controller/controller.php";
+            detailBillPage();
+            break;
+        case 'detailbillV2':
+            require "controller/controller.php";
+            detailBillPageV2();
+            break;
+    case 'societe':
+            require "controller/controller.php";
+            companyPage();
+            break;
+    case 'societeAdd':
         require "controller/controller.php";
-        detailBillPage();
+        companyAddPage();
+        break;
+    case 'societeDelete'://avec second paramet 'id'
+        require "controller/controller.php";
+        companyDeletePage();
+        break;
+    case 'societeUpdate'://avec second paramet 'id'
+        require "controller/controller.php";
+        companyUpdatePage();
         break;
 
-    case 'company':
+    case 'detailCompany':
         require "controller/controller.php";
-        //Mettre la fonction de controller
-        break;
-
-    case 'detailcompany':
-        require "controller/controller.php";
-        //Mettre la fonction de controller
+        detailCompanyPage();
         break;
 
     case 'admin':
@@ -80,13 +100,28 @@ switch ($_GET["page"]) {
                 //Mettre la fonction de controller
                 break;
 
-            default:
-                echo "Admin page";
-                break;
-        }
-
-        break;
-
+          }
+          break;
+    case 'client':
+      require "controller/controller.php";
+      companyClientPage();
+      break;
+    case 'provider':
+            require "controller/controller.php";
+            companyProviderPage();
+            break;
+    case 'login':
+            require "controller/controller.php";
+            loginPage();
+            break;
+    case 'dashboard':
+            require "controller/controller.php";
+            dashboard();
+            break;
+    case 'dashboardV2':
+            require "controller/controller.php";
+            dashboardV2();
+            break;
     default:
         echo "Home page";
         break;
