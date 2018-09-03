@@ -1,7 +1,6 @@
 <?php
 if(!isset($_GET["page"]))
 {$_GET["page"]="";}
-// require "controller/controller.php";
 switch ($_GET["page"]) {
 
     case 'directory':
@@ -38,11 +37,11 @@ switch ($_GET["page"]) {
         require "controller/controller.php";
         companyAddPage();
         break;
-    case 'societeDelete'://avec second paramet 'id'
+    case 'societeDelete':
         require "controller/controller.php";
         companyDeletePage();
         break;
-    case 'societeUpdate'://avec second paramet 'id'
+    case 'societeUpdate':
         require "controller/controller.php";
         companyUpdatePage();
         break;
@@ -70,32 +69,32 @@ switch ($_GET["page"]) {
                 //Mettre la fonction de controller
                 break;
 
-            case 'addbill': // Ajouter une facture
+            case 'addbill':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'updatebill': // Modifier une facture
+            case 'updatebill':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'deletebill': // Supprimer une facture
+            case 'deletebill':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'addcompany': // Ajouter une société
+            case 'addcompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'updatecompany': // Modifier une société
+            case 'updatecompany':
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;
 
-            case 'deletecompany': // Supprimer une société
+            case 'deletecompany': 
                 require "controller/controller.php";
                 //Mettre la fonction de controller
                 break;

@@ -120,9 +120,7 @@ $url="http://challenge-sql:8888/";//http://localhost/COGIP-app/
         global $url;
         require "views/login.php";
     }
-/*
-            page home
-*/
+
     //// ADMIN ////
     function addPersonAdminPage() {
         require "models/person.model.php";
