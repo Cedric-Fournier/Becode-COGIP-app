@@ -21,7 +21,7 @@
             </td>
             <td><?= $value['name']?></td>
             <td><a href="?page=admin&admin=updatebill&number=<?=$value['number']?>"><i class="fas fa-edit"></i></a></td>
-            <td><a href="?page=admin&admin=deletebill&number=<?=$value['number']?>"><i class="fas fa-trash"></i></a></td>
+            <td><a href="?page=admin&admin=deletebill&number=<?=$value['number']?>" target="blank" meta="refresh"><i class="fas fa-trash"></i></a></td>
           </tr>
         <?php } ?>
       </table>
@@ -31,6 +31,7 @@
       <table border='1'>
         <caption>Liste des dernières sociétés</caption>
         <tr>
+          <th>id</th>
           <th>nom</th>
           <th>numéro de téléphone</th>
           <th>type</th>
@@ -38,13 +39,14 @@
         </tr>
         <?php foreach ($company as $key => $value) { ?>
           <tr>
+            <td><?=$value['nbr']?></td>
             <td>
-              <a href="?page=detailCompany&id=<?=$value['id']?>"><?= $value['name']?></a>
+              <a href="?page=detailCompany&id=<?=$value['nbr']?>"><?= $value['name']?></a>
             </td>
             <td><?= $value['phone']?></td>
             <td><?= $value['type']?></td>
-            <td><a href="?page=admin&admin=updatecompany&id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></td>
-            <td><a href="?page=admin&admin=deletecompany&id=<?=$value['id']?>"><i class="fas fa-trash"></i></a></td>
+            <td><a href="?page=admin&admin=updatecompany&id=<?=$value['nbr']?>"><i class="fas fa-edit"></i></a></td>
+            <td><a href="?page=admin&admin=deletecompany&id=<?=$value['nbr']?>" target="blank" meta="refresh"><i class="fas fa-trash"></i></a></td>
           </tr>
         <?php } ?>
       </table>
@@ -54,6 +56,7 @@
         <table border='1'>
           <caption>Liste des dernières personnes</caption>
           <tr>
+            <th>id</th>
             <th>nom prénom</th>
             <th>numéro de téléphone</th>
             <th>adresse e-mail</th>
@@ -62,6 +65,7 @@
           </tr>
           <?php foreach ($person as $key => $value) { ?>
             <tr>
+              <td><?=$value['id']?></td>
               <td>
                 <a href="?page=detailPerson&id=<?=$value['id']?>"><?= $value['firstname']?> <?= $value['lastname']?></a>
               </td>
@@ -69,7 +73,7 @@
               <td><?= $value['email']?></td>
               <td><?= $value['name']?></td>
               <td><a href="?page=admin&admin=updateperson&id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></td>
-              <td><a href="?page=admin&admin=deleteperson&id=<?=$value['id']?>"><i class="fas fa-trash"></i></a></td>
+              <td><a href="?page=admin&admin=deleteperson&id=<?=$value['id']?>" target="blank" meta="refresh"><i class="fas fa-trash"></i></a></td>
             </tr>
           <?php } ?>
         </table>
