@@ -12,32 +12,41 @@
         <div class="col-6 text-center">
           <h1>l'adresse de la société</h1>
         </div>
-        <div class="col-4 text-center">
+        <div class="col-6 text-center">
           <h1>le pays</h1>
         </div>
-        <div class="col-2 text-center">
-          <h1>le type de société</h1>
-        </div>
+        
         <div class="col-6 text-center">
           <?=($company['street']." ".$company['number'].", ".$company['zip']." ".$company['city'])?>
         </div>
-        <div class="col-4 text-center">
+        <div class="col-6 text-center">
           <?=$company['country']?>
         </div>
-        <div class="col-2 text-center">
-          <?=$company['categorie']?>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>le n° de téléphone</h1>
+                </div>
+                <div class="col-12 text-center">
+                    <?=$company['phone']?>
+                </div>
+                <div class="col-12 text-center">
+                    <h1>le n° de TVA</h1>
+                </div>
+                <div class="col-12 text-center">
+                    <?=$company['VAT']?>
+                </div>
+            </div>
         </div>
-        <div class="col-12 text-center">
-          <h1>le n° de téléphone</h1>
-        </div>
-        <div class="col-12 text-center">
-          <?=$company['phone']?>
-        </div>
-        <div class="col-12 text-center">
-          <h1>le n° de TVA</h1>
-        </div>
-        <div class="col-12 text-center">
-          <?=$company['VAT']?>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>le type de société</h1>
+                </div>
+                <div class="col-12 text-center">
+                    <?=$company['categorie']?>
+                </div>
+            </div>
         </div>
         <div class="col-6 text-center">
           <h1>liste des personnes</h1>

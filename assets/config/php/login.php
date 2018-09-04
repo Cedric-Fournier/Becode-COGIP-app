@@ -14,7 +14,7 @@ if (isset($_POST['login'])==true && isset($_POST['pwd'])==true) {
 		// on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
 		$_SESSION['login'] = $_POST['login'];
 		$_SESSION['pwd'] = $_POST['pwd'];
-
+        $_SESSION['mode'] = $value['typeSession'];
 		// on redirige notre visiteur vers une page de notre section membre
         header ('location:../../../?page=dashboard');
         exit();

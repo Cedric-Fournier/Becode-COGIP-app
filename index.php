@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 // session_start();
-
+session_start ();
 if(!isset($_GET["page"])) {
     $_GET["page"]="";
 }
@@ -26,11 +26,11 @@ switch ($_GET["page"]) {
         require "controller/controller.php";
         billAddPage();
         break;
-    case 'billUpdate'://avec second paramet 'number'
+    case 'billUpdate':
         require "controller/controller.php";
         billUpdatePage();
         break;
-    case 'billDelete'://avec second paramet 'number'
+    case 'billDelete':
         require "controller/controller.php";
         billDeletePage();
         break;
@@ -116,7 +116,10 @@ switch ($_GET["page"]) {
 
     default:
         require "controller/controller.php";
-        loginPage();
+        if (isset($_SESSION['mode'])) {
+            dashboard();
+        }else{loginPage();}
+        
         break;
 }
 
