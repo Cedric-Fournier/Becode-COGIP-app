@@ -16,7 +16,7 @@ function companyFiveLatest(){
     require "assets/config/php/config.php";
     $requestSQL="SELECT company.*,type.*
     FROM company,type
-    WHERE company.type=type.id
+    WHERE company.type=type.id ORDER BY company.id DESC
     LIMIT 5";
     $requete = $pdo->prepare($requestSQL);
     $requete->execute();

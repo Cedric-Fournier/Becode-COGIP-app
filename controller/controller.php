@@ -1,9 +1,6 @@
 <?php
-$url="http://challenge-sql:8888/";//http://challenge-sql:8888/
-//http://localhost/COGIP-app/
 
     function directoryPage() {
-        global $url;
         require "models/person.model.php";
         $reponse = getDirectory();
         require "views/directory.view.php";
@@ -11,7 +8,6 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
     }
 
     function detailPersonPage() {
-      global $url;
       require "models/person.model.php";
       $person = getDetailPerson();
       require "views/detailPerson.view.php";
@@ -19,21 +15,18 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
 
 
     function billPage() {
-      global $url;
       require "models/bill.model.php";
       $bill=lireBill();
       require "views/bill.view.php";
     }
 
     function detailBillPage() {
-        global $url;
       require "models/bill.model.php";
       $detailBill=detailBill();
       require "views/billDetail.view.php";
     }
 
     function dashboard() {
-        global $url;
         require "models/dashboard.model.php";
         $bill=billFiveLatest();
         $company=companyFiveLatest();
@@ -43,13 +36,11 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
 
     function companyPage() {
         require "models/company.model.php";
-        global $url;
         $company=companyView();
         require "views/company.view.php";
     }
 
     function detailCompanyPage() {
-        global $url;
         require "models/company.model.php";
         $id=companyDetail($_GET['id']);
         $donnees=companyRead($id);
@@ -61,48 +52,18 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
 
     function companyClientPage() {
         require "models/company.model.php";
-        global $url;
         $company=companyClientView();
         require "views/client.view.php";
     }
 
     function companyProviderPage() {
         require "models/company.model.php";
-        global $url;
         $company=companyProviderView();
         require "views/provider.view.php";
     }
-
-    function companyAddPage() {
-        require "models/company.model.php";
-        global $url;
-        $message=companyCreate();
-        $donneesInfoType=lireTypeCompany();
-        $type=$donneesInfoType['0'];
-        $checkType=$donneesInfoType['1'];
-        require "views/admin/addCompany.view.php";
-    }
-
-    function companyDeletePage() {
-        require "models/company.model.php";
-        global $url;
-        $message=companyDelete($_GET['id']);
-        require "views/admin/deleteCompany.view.php";
-    }
-
-    function companyUpdatePage() {
-        require "models/company.model.php";
-        global $url;
-        $donneesCompanyModife=companyUpdate();
-        $company=$donneesCompanyModife['0'];
-            $checkType=$donneesCompanyModife['1'];
-            $type=$donneesCompanyModife['2'];
-            $message=$donneesCompanyModife['3'];
-        require "views/admin/updateCompany.view.php";
-
-    }
+   
     function loginPage(){
-        global $url;
+
         require "views/login.php";
     }
 
@@ -129,12 +90,52 @@ $url="http://challenge-sql:8888/";//http://challenge-sql:8888/
     }
 
     function addBillAdminPage() {
+        require "models/bill.model.php";
+        $message=billCreate();
+        $typeDataBill=typeDataBill();
+        $company=$typeDataBill['0'];
+        $person=$typeDataBill['1'];
+        require "views/admin/addBill.view.php";
     }
-
     function updateBillAdminPage() {
+        require "models/bill.model.php";
+        $donneesBillModife=billUpdate();
+        $bill=$donneesBillModife['0'];
+        $company=$donneesBillModife['1'];
+        $person=$donneesBillModife['2'];
+        $selectCompany=$donneesBillModife['3'];
+        $selectPerson=$donneesBillModife['4'];
+        $message=$donneesBillModife['5'];
+        require "views/admin/updateBill.view.php";       
     }
-
     function deleteBillAdminPage() {
+        require "models/bill.model.php";
+        $message=deleteBill($_GET['number']);
+        require "views/admin/deleteBill.view.php";
+    }
+    
+    function companyAddPage(){
+        require "models/company.model.php";
+        $message=companyCreate();
+        $donneesInfoType=lireTypeCompany();
+        $type=$donneesInfoType['0'];
+        $checkType=$donneesInfoType['1'];
+        require "views/admin/addCompany.view.php";
     }
 
+    function companyDeletePage() {
+        require "models/company.model.php";
+        $message=companyDelete($_GET['id']);
+        require "views/admin/deleteCompany.view.php";
+    }
+    
+    function companyUpdatePage(){
+        require "models/company.model.php";
+        $donneesCompanyModife=companyUpdate();
+        $company=$donneesCompanyModife['0'];
+            $checkType=$donneesCompanyModife['1'];
+            $type=$donneesCompanyModife['2'];
+            $message=$donneesCompanyModife['3'];
+        require "views/admin/updateCompany.view.php";
+    }
 ?>

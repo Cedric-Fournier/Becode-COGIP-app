@@ -14,30 +14,18 @@ switch ($_GET["page"]) {
         break;
 
     case 'bill':
-            require "controller/controller.php";
-            billPage();
-            break;
+        require "controller/controller.php";
+        billPage();
+        break;
 
     case 'detailbill':
-            require "controller/controller.php";
-            detailBillPage();
-            break;
+        require "controller/controller.php";
+        detailBillPage();
+        break;
 
     case 'societe':
-            require "controller/controller.php";
-            companyPage();
-            break;
-    case 'societeAdd':
         require "controller/controller.php";
-        companyAddPage();
-        break;
-    case 'societeDelete':
-        require "controller/controller.php";
-        companyDeletePage();
-        break;
-    case 'societeUpdate':
-        require "controller/controller.php";
-        companyUpdatePage();
+        companyPage();
         break;
 
     case 'detailCompany':
@@ -60,59 +48,65 @@ switch ($_GET["page"]) {
 
             case 'deleteperson':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                deletePersonAdminPage();
                 break;
 
             case 'addbill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                addBillAdminPage();
                 break;
 
             case 'updatebill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                updateBillAdminPage();
                 break;
 
             case 'deletebill':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                deleteBillAdminPage();
                 break;
 
             case 'addcompany':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                companyAddPage();
                 break;
 
             case 'updatecompany':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                companyUpdatePage();
                 break;
 
             case 'deletecompany':
                 require "controller/controller.php";
-                //Mettre la fonction de controller
+                companyDeletePage();
                 break;
-
           }
-          break;
+
+        break;
+
     case 'client':
-      require "controller/controller.php";
-      companyClientPage();
-      break;
+        require "controller/controller.php";
+        companyClientPage();
+        break;
+
     case 'provider':
-            require "controller/controller.php";
-            companyProviderPage();
-            break;
+        require "controller/controller.php";
+        companyProviderPage();
+        break;
+
     case 'login':
-            require "controller/controller.php";
-            loginPage();
-            break;
+        require "controller/controller.php";
+        loginPage();
+        break;
+
     case 'dashboard':
-            require "controller/controller.php";
-            dashboard();
-            break;
+        require "controller/controller.php";
+        dashboard();
+        break;
+        
     default:
         echo "Home page";
         break;
 }
+
 ?>
