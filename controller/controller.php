@@ -91,7 +91,7 @@
         require "models/person.model.php";
         $personUp = getUpdatePerson();
         $getPerson = getUpdateDetailPerson();
-        $message = getCompanyName();
+        $getCompany = getCompanyName();
         require "views/admin/updatePerson.view.php";
     }
 
