@@ -123,7 +123,7 @@
 
     function deleteCompanyAdminPage() { //companyDeletePage
         require "models/company.model.php";
-        $message=companyDelete($_GET['id']);
+        $getCompany=companyDelete($_GET['id']);
         require "views/admin/deleteaddCompany.view.php";
     }
 
