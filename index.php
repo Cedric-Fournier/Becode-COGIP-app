@@ -1,6 +1,11 @@
 <?php
-if(!isset($_GET["page"]))
-{$_GET["page"]="";}
+
+// session_start();
+
+if(!isset($_GET["page"])) {
+    $_GET["page"]="";
+}
+
 switch ($_GET["page"]) {
 
     case 'directory':
@@ -17,12 +22,22 @@ switch ($_GET["page"]) {
         require "controller/controller.php";
         billPage();
         break;
-
+    case 'billAdd':
+        require "controller/controller.php";
+        billAddPage();
+        break;
+    case 'billUpdate':
+        require "controller/controller.php";
+        billUpdatePage();
+        break;
+    case 'billDelete':
+        require "controller/controller.php";
+        billDeletePage();
+        break;
     case 'detailbill':
         require "controller/controller.php";
         detailBillPage();
         break;
-
     case 'societe':
         require "controller/controller.php";
         companyPage();
@@ -68,17 +83,17 @@ switch ($_GET["page"]) {
 
             case 'addcompany':
                 require "controller/controller.php";
-                companyAddPage();
+                addCompanyAdminPage();
                 break;
 
             case 'updatecompany':
                 require "controller/controller.php";
-                companyUpdatePage();
+                updateCompanyAdminPage();
                 break;
 
             case 'deletecompany':
                 require "controller/controller.php";
-                companyDeletePage();
+                deleteCompanyAdminPage();
                 break;
           }
 
