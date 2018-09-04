@@ -10,6 +10,5 @@ session_unset ();
 session_destroy ();
 
 // On redirige le visiteur vers la page d'accueil
-header ('location: http://localhost/COGIP-app/?page=login');
-        exit();
+header ('location: ../../../');
 ?>

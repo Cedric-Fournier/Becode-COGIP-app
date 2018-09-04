@@ -1,5 +1,6 @@
 <?php
 
+// session_start();
 if(!isset($_GET["page"])) {
     $_GET["page"]="";
 }
@@ -114,7 +115,10 @@ switch ($_GET["page"]) {
 
     default:
         require "controller/controller.php";
-        loginPage();
+        if (isset($_SESSION['mode'])) {
+            dashboard();
+        }else{loginPage();}
+        
         break;
 }
 

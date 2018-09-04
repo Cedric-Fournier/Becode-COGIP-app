@@ -20,6 +20,7 @@
     }
 
     function detailBillPage() {
+
       require "models/bill.model.php";
       $detailBill=detailBill();
       require "views/billDetail.view.php";
