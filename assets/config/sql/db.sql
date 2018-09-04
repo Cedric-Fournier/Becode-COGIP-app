@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 03 Septembre 2018 à 09:21
+-- Généré le :  Mar 04 Septembre 2018 à 11:45
 -- Version du serveur :  5.7.23-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.31-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -42,18 +42,18 @@ INSERT INTO `bill` (`number`, `date`, `object`, `company`, `person`) VALUES
 (1, '2018-08-07', 'allez-ciné', 1, 3),
 (2, '2018-07-08', 'challenge php', 1, 4),
 (3, '2018-06-10', 'onepage unicode', 1, 5),
-(4, '2018-04-09', 'onepage orange', 2, 6),
-(5, '2018-08-12', 'livraison 2 pal', 1, 7),
-(6, '2018-08-14', 'livraison 5 pal', 1, 8),
+(4, '2018-04-09', 'onepage orange', 1, 6),
+(5, '2018-08-12', 'livraison 2 pal', 2, 7),
+(6, '2018-08-14', 'livraison 5pal', 2, 8),
 (7, '2018-08-17', 'opération marketing', 2, 9),
 (8, '2018-08-21', 'joyeux noel', 2, 10),
 (9, '2018-08-29', 'assomption', 2, 11),
-(10, '2018-08-15', '3 pizza + 2 pates', 2, 12),
+(10, '2018-08-15', '3 pizza + 2pates', 5, 12),
 (11, '2018-08-28', 'panier surprise Web Dev', 5, 13),
 (12, '2018-08-29', 'panier surprise coca-cola', 5, 14),
 (13, '2018-08-23', 'panier surprise BeCode', 5, 15),
 (14, '2018-08-27', 'panier surprise BeCentral', 5, 16),
-(15, '2018-08-08', 'devis chantier Charleroi', 5, 17),
+(15, '2018-08-08', 'devis chantier Charleroi', 6, 17),
 (16, '2018-08-21', 'livraison matériel Charleroi', 6, 18),
 (17, '2018-08-29', 'Main d\'oeuvre Charleroi', 6, 19),
 (18, '2018-07-01', 'Devis Chantier Bruxelles', 6, 20),
@@ -117,10 +117,10 @@ CREATE TABLE `person` (
 
 INSERT INTO `person` (`id`, `firstname`, `lastname`, `phone`, `email`, `company`) VALUES
 (3, 'Cedric', 'Fournier', '0499123456', 'cedricfournier@email.com', 1),
-(4, 'Adrien', 'd\'Oreye', '0489824514', 'adriendoreye@email.com', 1),
+(4, 'Adrien', 'd\'Oreye', '0489824514', 'adriendoreye@email;com', 1),
 (5, 'Stephane', 'Wilfort', '04172569', 'stephanewilfort@email.com', 1),
 (6, 'Genièvre', 'Van Chou', '0429541239', 'genievrevanchou@email.com', 2),
-(7, 'Julie', 'Dupont', '0478503654', 'juliedupont@email.com', 1),
+(7, 'Julie', 'Dupont', '0478503654', 'juliedupont', 1),
 (8, 'Marie', 'Dupont', '0478500200', 'mariedupont@email.com', 1),
 (9, 'John', 'Smith', '0497007977', 'johnsmith@email.com', 2),
 (10, 'Henry', 'Salvador', '024821214', 'henrysalvador@email.com', 2),
@@ -172,7 +172,7 @@ INSERT INTO `type` (`id`, `type`) VALUES
 CREATE TABLE `user` (
   `id` tinyint(3) UNSIGNED NOT NULL,
   `login` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `email` varchar(30) NOT NULL,
   `typeSession` varchar(30) NOT NULL COMMENT 'Admin/Modo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -182,9 +182,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `login`, `password`, `email`, `typeSession`) VALUES
-(1, 'jean-christian', 'ranu', 'jean-michelranu@email.com', 'admin'),
-(2, 'muriel', 'perrache', 'murielperrache@email.com', 'modo'),
-(3, 'jean-michel', 'berthier', 'jean-michelberthier@email.com', 'user');
+(1, 'jean-christian', '9770d1c99cd356280d7bb78b97bdbe4bf25ff1da', 'jean-michelranu@email.com', 'admin'),
+(2, 'muriel', 'f2ff241eac83db641cadb1c8af3b0d8ca9fa7160', 'murielperrache@email.com', 'modo'),
+(3, 'jean-michel', 'a7c22d01b3f7a61904282470d5e92044d4588a42', 'jean-michelberthier@email.com', 'user');
 
 --
 -- Index pour les tables exportées
