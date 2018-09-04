@@ -9,8 +9,6 @@
 - [Stéphan Wilfort](https://github.com/wilfort)
 - **The Website** : https://adridor.000webhostapp.com/
 
-## Demande client : 
-Créer une plateforme pour la gestion des factures et des entreprises. 
 
 ## Cahier des charges : 
 [Repo BeCode](https://github.com/becodeorg/Johnson2/tree/master/projets/COGIPapp)
