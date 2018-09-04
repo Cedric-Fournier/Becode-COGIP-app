@@ -5,7 +5,6 @@ $requestSQL="SELECT * FROM user";
     $requete->execute();
     $connection = $requete->fetchAll();
     $requete->closeCursor();
-    //print_r($connection);
 // on teste si nos variables sont définies
 if (isset($_POST['login'])==true && isset($_POST['pwd'])==true) {
     $errorConnect=0;
