@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 // session_start();
 
@@ -109,18 +109,14 @@ switch ($_GET["page"]) {
         companyProviderPage();
         break;
 
-    case 'login':
-        require "controller/controller.php";
-        loginPage();
-        break;
-
     case 'dashboard':
         require "controller/controller.php";
         dashboard();
         break;
 
     default:
-        echo "Home page";
+        require "controller/controller.php";
+        loginPage();
         break;
 }
 
