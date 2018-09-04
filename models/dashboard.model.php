@@ -21,7 +21,7 @@
   function companyFiveLatest() {
       require "assets/config/php/config.php";
       $requestSQL=
-        "SELECT company.*,type.*
+        "SELECT company.*,type.*,company.id AS nbr
         FROM company,type
         WHERE company.type=type.id ORDER BY company.id DESC
         LIMIT 5";

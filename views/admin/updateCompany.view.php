@@ -1,7 +1,6 @@
 <?php require 'views/partials/header.php';?>
   <section>
       <form action="#" method="post">
-        <label for="id">L'id de la société : </label><input type="number" name="id" id="id" value="<?=$company['id']?>"><br>
         <label for="name">La désignation sociale de la société : </label><input type="text" name="name" id="name" value="<?=$company['name']?>"><br>
         <label for="street">Le nom de la rue : </label><input type="text" name="street" id="street" value="<?=$company['street']?>"><br>
         <label for="number">Le numéro de la rue : </label><input type="number" name="number" id="number" value="<?=$company['number']?>"><br>
