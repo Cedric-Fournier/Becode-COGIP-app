@@ -31,6 +31,7 @@
         $bill=billFiveLatest();
         $company=companyFiveLatest();
         $person=personFiveLatest();
+        print_r($_SESSION);
         require "views/dashboard.view.php";
     }
 

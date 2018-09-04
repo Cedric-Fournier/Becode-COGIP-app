@@ -20,12 +20,12 @@
   <span class="navbar-brand" id="band"><a href="index.php"><img src="assets/images/COGIP-logo.png" alt="logo"></a>
   </span>
   <!-- Toggler/collapsibe Button -->
-  <button name="menu" aria-hidden="true" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <!-- <button name="menu" aria-hidden="true" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> -->
 
   <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <!-- <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="nav navbar-nav nav-fill">
       <li class="nav-item">
         <a class="nav-link" href="?page=societe">Société</a>
@@ -43,5 +43,5 @@
         <a class="nav-link" href="assets/config/php/logout.php">Déconnection</a>
       </li>
     </ul>
-  </div>
+  </div> -->
 </nav>
