@@ -21,7 +21,7 @@
         <caption>Liste des cinq dernières sociétés</caption>
         <tr>
           <th>nom</th>
-          <th>numéro de téléphone</th>
+          <th>téléphone</th>
           <th>type</th>
           <th colspan="2"></th>
         </tr>
@@ -68,8 +68,8 @@
         <table border='1'>
           <caption>Liste des cinq dernières personnes</caption>
           <tr>
-            <th>nom prénom</th>
-            <th>numéro de téléphone</th>
+            <th>prénom nom</th>
+            <th>téléphone</th>
             <th>adresse e-mail</th>
             <th>société</th>
             <th colspan="2"></th>
