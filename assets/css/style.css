@@ -1,6 +1,6 @@
 .model {
 	width: 100%;
-	height: 100%;
+	height: auto;
 }
 
 .general {
@@ -9,7 +9,7 @@
 	height: auto;
 	border: 1px solid black;
 	border-radius: 20px;
-	margin: 5% auto 15% auto;
+	margin: 5% auto 5% auto;
 	padding: 4%;
 }
 
@@ -160,3 +160,5 @@ caption {
 	text-align: center;
 }
 .invisible{display: none;}
+table{width: 100%;}
+.cellule20{width: 20%;}

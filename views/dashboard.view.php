@@ -1,4 +1,5 @@
 <?php require 'views/partials/header.php'; ?>
+<section>
 <div class="model">
   <div class="buttonAdd">
     <span>
@@ -71,7 +72,7 @@
             <th>numéro</th>
             <th>prénom nom</th>
             <th>téléphone</th>
-            <th>adresse e-mail</th>
+            <th class="cellule20">adresse e-mail</th>
             <th>société</th>
             <th colspan="2" <?=$editDelet?>></th>
           </tr>
@@ -82,7 +83,7 @@
                 <a href="?page=detailPerson&id=<?=$value['id']?>"><?= $value['firstname']?> <?= $value['lastname']?></a>
               </td>
               <td><?= $value['phone']?></td>
-              <td><?= $value['email']?></td>
+              <td class="cellule20"><?= $value['email']?></td>
               <td><?= $value['name']?></td>
               <td <?=$editDelet?>><a href="?page=admin&admin=updateperson&id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></td>
               <td <?=$editDelet?>><a href="?page=admin&admin=deleteperson&id=<?=$value['id']?>" target="blank" meta="refresh"><i class="fas fa-trash"></i></a></td>
@@ -91,5 +92,5 @@
         </table>
     </div>
   </div>
-</div>
+</div></section>
 <?php require 'views/partials/footer.php'; ?>
