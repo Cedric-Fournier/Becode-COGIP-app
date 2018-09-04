@@ -1,7 +1,7 @@
 <?php
 
 // session_start();
-
+session_start ();
 if(!isset($_GET["page"])) {
     $_GET["page"]="";
 }
@@ -109,18 +109,17 @@ switch ($_GET["page"]) {
         companyProviderPage();
         break;
 
-    case 'login':
-        require "controller/controller.php";
-        loginPage();
-        break;
-
     case 'dashboard':
         require "controller/controller.php";
         dashboard();
         break;
 
     default:
-        echo "Home page";
+        require "controller/controller.php";
+        if (isset($_SESSION['mode'])) {
+            dashboard();
+        }else{loginPage();}
+        
         break;
 }
 

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="icon" type="image/png" href="assets/images/COGIP-logo.png" />
+        <link rel="icon" type="image/png" href="http://localhost/COGIP-app/assets/images/COGIP-logo.png" />
         <script src="vendor/components/jquery/jquery.js"></script>
         <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -17,7 +17,7 @@
 <nav class="navbar navbar-expand-md bg-light navbar-blue">
   <!-- Brand -->
 
-  <span class="navbar-brand" id="band"><a href="?page=dashboard"><img src="assets/images/COGIP-logo.png" alt="logo"></a>
+  <span class="navbar-brand" id="band"><a href="index.php"><img src="assets/images/COGIP-logo.png" alt="logo"></a>
   </span>
   <!-- Toggler/collapsibe Button -->
   <button name="menu" aria-hidden="true" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -38,6 +38,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="?page=bill">Facture</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets/config/php/logout.php">Déconnection</a>
       </li>
     </ul>
   </div>
