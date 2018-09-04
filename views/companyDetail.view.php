@@ -71,9 +71,9 @@
           </ul>
         </div>
       </div>
-      <a href="./?page=societe">Retour sur Société</a>
-      <a href="./?page=client">Retour sur Client</a>
-      <a href="./?page=provider">Retour sur Fournisseur</a>
+      <button><a href="./?page=societe">Retour sur Société</a></button>
+      <button><a href="./?page=client">Retour sur Client</a></button>
+      <button><a href="./?page=provider">Retour sur Fournisseur</a></button>
     </div>
   </div>
 </section>

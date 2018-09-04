@@ -4,21 +4,66 @@
       require "assets/config/php/config.php";
       $message="";
       if(isset($_POST['creer'])) {
+        $name=$_POST['name'];
+        if (filter_var($name, FILTER_SANITIZE_STRING)) 
+        {
+          $name_valid = $name;
+        }
+        $street=$_POST['street'];
+        if (filter_var($street, FILTER_SANITIZE_STRING)) 
+        {
+          $street_valid = $street;
+        }
+        $number=$_POST['number'];
+        if (filter_var($number, FILTER_SANITIZE_NUMBER_INT)) 
+        {
+          $number_valid = $number;
+        }
+        $zip=$_POST['zip'];
+        if (filter_var($zip, FILTER_SANITIZE_NUMBER_INT)) 
+        {
+          $zip_valid = $zip;
+        }
+        $city=$_POST['city'];
+        if (filter_var($city, FILTER_SANITIZE_STRING)) 
+        {
+          $city_valid = $city;
+        }
+        $country=$_POST['country'];
+        if (filter_var($country, FILTER_SANITIZE_STRING)) 
+        {
+          $country_valid = $country;
+        }
+        $VAT=$_POST['VAT'];
+        if (filter_var($VAT, FILTER_SANITIZE_NUMBER_INT)) 
+        {
+          $VAT_valid = $VAT;
+        }
+        $phone=$_POST['phone'];
+        if (filter_var($phone, FILTER_SANITIZE_NUMBER_INT)) 
+        {
+          $phone_valid = $phone;
+        }
+        $type=$_POST['type'];
+        if (filter_var($type, FILTER_SANITIZE_NUMBER_INT)) 
+        {
+          $type_valid = $type;
+        }
         $requestSQL=
           "INSERT INTO company (name, street, number, zip, city, country, VAT, phone, type)
           VALUES (:name, :street, :number, :zip, :city, :country, :VAT, :phone, :type);";
 
         $requete = $pdo->prepare($requestSQL);
 
-        $requete->bindParam(":name", $_POST['name']);
-    		$requete->bindParam(":street", $_POST['street']);
-        $requete->bindParam(":number", $_POST['number']);
-        $requete->bindParam(":zip", $_POST['zip']);
-    		$requete->bindParam(":city", $_POST['city']);
-        $requete->bindParam(":country", $_POST['country']);
-        $requete->bindParam(":VAT", $_POST['VAT']);
-        $requete->bindParam(":phone", $_POST['phone']);
-        $requete->bindParam(":type", $_POST['type']);
+        $requete->bindParam(":name", $name_valid);
+    		$requete->bindParam(":street", $street_valid);
+        $requete->bindParam(":number", $number_valid);
+        $requete->bindParam(":zip", $zip_valid);
+    		$requete->bindParam(":city", $city_valid);
+        $requete->bindParam(":country", $country_valid);
+        $requete->bindParam(":VAT", $VAT_valid);
+        $requete->bindParam(":phone", $phone_valid);
+        $requete->bindParam(":type", $type_valid);
 
 		    $requete->execute();
 		    $message="La société a été ajoutée avec succès.";

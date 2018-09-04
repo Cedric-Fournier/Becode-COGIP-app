@@ -29,7 +29,7 @@
         <?php foreach ($company as $key => $value) { ?>
           <tr>
             <td>
-              <a href="?page=detailCompany&id=<?=$value['id']?>"><?= $value['name']?></a>
+              <a href="?page=detailCompany&id=<?=$value['nbr']?>"><?= $value['name']?></a>
             </td>
             <td><?= $value['phone']?></td>
             <td><?= $value['type']?></td>
