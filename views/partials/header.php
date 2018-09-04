@@ -23,5 +23,6 @@
   <!-- <button name="menu" aria-hidden="true" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>-->
-  <span class="navbar-brand">Vive la COGIP !</span><a class="nav-link" href="assets/config/php/logout.php">Déconnection</a>
+  <span class="navbar-brand pull-right">Vive la COGIP !</span>
 </nav>
+<div class="text-right"><button><a href="assets/config/php/logout.php">Déconnection</a></button></div>
