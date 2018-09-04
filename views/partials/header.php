@@ -20,8 +20,8 @@
   <span class="navbar-brand" id="band"><a href="index.php"><img src="assets/images/COGIP-logo.png" alt="logo"></a>
   </span>
   <!-- Toggler/collapsibe Button -->
-  <button name="menu" aria-hidden="true" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <!-- <button name="menu" aria-hidden="true" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <span class="navbar-brand">Vive la COGIP !</span>
+  </button>-->
+  <span class="navbar-brand">Vive la COGIP !</span><a class="nav-link" href="assets/config/php/logout.php">Déconnection</a>
 </nav>

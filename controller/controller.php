@@ -31,6 +31,19 @@
         $bill=billFiveLatest();
         $company=companyFiveLatest();
         $person=personFiveLatest();
+        if($_SESSION['mode']=='admin'){
+            $editDelet="";
+            $creat="";
+        }
+        else if($_SESSION['mode']=='modo'){
+            $editDelet="class='invisible'";
+            $creat="";
+        }
+        else{
+            $editDelet="class='invisible'";
+            $creat="class='invisible'";
+        }
+        echo ("Bonjour ".$_SESSION['lastname']." ".$_SESSION['fristname']."\n");
         require "views/dashboard.view.php";
     }
 
