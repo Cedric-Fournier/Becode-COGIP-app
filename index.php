@@ -26,11 +26,11 @@ switch ($_GET["page"]) {
         require "controller/controller.php";
         billAddPage();
         break;
-    case 'billUpdate'://avec second paramet 'number'
+    case 'billUpdate':
         require "controller/controller.php";
         billUpdatePage();
         break;
-    case 'billDelete'://avec second paramet 'number'
+    case 'billDelete':
         require "controller/controller.php";
         billDeletePage();
         break;
@@ -109,18 +109,14 @@ switch ($_GET["page"]) {
         companyProviderPage();
         break;
 
-    case 'login':
-        require "controller/controller.php";
-        loginPage();
-        break;
-
     case 'dashboard':
         require "controller/controller.php";
         dashboard();
         break;
 
     default:
-        echo "Home page";
+        require "controller/controller.php";
+        loginPage();
         break;
 }
 
