@@ -61,8 +61,6 @@
         require "views/provider.view.php";
     }
 
-    
-
     function loginPage() {
         require "views/login.php";
     }
