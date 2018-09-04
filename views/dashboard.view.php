@@ -1,10 +1,47 @@
 <?php require 'views/partials/header.php'; ?>
 <div class="model">
+  <div class="buttonAdd">
+    <span>
+      <button type="button" name="addBill"><a href="?page=admin&admin=addbill">Ajouter une facture</a></button>
+      <button type="button" name="addCompany"><a href="?page=admin&admin=addcompany">Ajouter une société</a></button>
+      <button type="button" name="addPerson"><a href="?page=admin&admin=addperson">Ajouter une personne</a></button>
+    </span>
+  </div>
   <div class="general">
     <div>
-      <h1>Factures</h1>
+      <div class="typeCompany">
+        <span>
+          <button type="button" name="client"><a class="nav-link" href="?page=client">Client</a></button>
+          <button type="button" name="provider"><a class="nav-link" href="?page=provider">Fournisseur</a></button>
+        </span>
+      </div>
+      
+      <h1><a href="?page=societe">Sociétés</a></h1>
       <table border='1'>
-        <caption>Liste des dernières factures</caption>
+        <caption>Liste des cinq dernières sociétés</caption>
+        <tr>
+          <th>nom</th>
+          <th>numéro de téléphone</th>
+          <th>type</th>
+          <th colspan="2"></th>
+        </tr>
+        <?php foreach ($company as $key => $value) { ?>
+          <tr>
+            <td>
+              <a href="?page=detailCompany&id=<?=$value['id']?>"><?= $value['name']?></a>
+            </td>
+            <td><?= $value['phone']?></td>
+            <td><?= $value['type']?></td>
+            <td><a href="?page=admin&admin=updatecompany&id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></td>
+            <td><a href="?page=admin&admin=deletecompany&id=<?=$value['id']?>"><i class="fas fa-trash"></i></a></td>
+          </tr>
+        <?php } ?>
+      </table>  
+    </div>
+    <div>
+      <h1><a href="?page=bill">Factures</a></h1>
+      <table border='1'>
+        <caption>Liste des cinq dernières factures</caption>
           <tr>
             <th>numéro</th>
             <th>Date</th>
@@ -27,32 +64,9 @@
       </table>
     </div>
     <div>
-      <h1>Sociétés</h1>
-      <table border='1'>
-        <caption>Liste des dernières sociétés</caption>
-        <tr>
-          <th>nom</th>
-          <th>numéro de téléphone</th>
-          <th>type</th>
-          <th colspan="2"></th>
-        </tr>
-        <?php foreach ($company as $key => $value) { ?>
-          <tr>
-            <td>
-              <a href="?page=detailCompany&id=<?=$value['id']?>"><?= $value['name']?></a>
-            </td>
-            <td><?= $value['phone']?></td>
-            <td><?= $value['type']?></td>
-            <td><a href="?page=admin&admin=updatecompany&id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></td>
-            <td><a href="?page=admin&admin=deletecompany&id=<?=$value['id']?>"><i class="fas fa-trash"></i></a></td>
-          </tr>
-        <?php } ?>
-      </table>
-    </div>
-    <div>
-      <h1>Personnes</h1>
+      <h1><a href="?page=directory">Annulaire</a></h1>
         <table border='1'>
-          <caption>Liste des dernières personnes</caption>
+          <caption>Liste des cinq dernières personnes</caption>
           <tr>
             <th>nom prénom</th>
             <th>numéro de téléphone</th>
@@ -73,13 +87,6 @@
             </tr>
           <?php } ?>
         </table>
-    </div>
-    <div>
-      <span class="buttonAdd">
-        <button type="button" name="addBill"><a href="?page=admin&admin=addbill">Ajouter une facture</a></button>
-        <button type="button" name="addCompany"><a href="?page=admin&admin=addcompany">Ajouter une société</a></button>
-        <button type="button" name="addPerson"><a href="?page=admin&admin=addperson">Ajouter une personne</a></button>
-      </span>
     </div>
   </div>
 </div>
