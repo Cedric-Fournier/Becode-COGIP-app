@@ -9,11 +9,11 @@ $requestSQL="SELECT * FROM user";
 if (isset($_POST['login'])==true && isset($_POST['pwd'])==true) {
     $errorConnect=0;
     foreach ($connection as $key => $value) {
-        if (($value['login'] == $_POST['login']) && ($value['password'] == $_POST['pwd'])){
+        if (($value['login'] == $_POST['login']) && ($value['password'] == sha1($_POST['pwd']))){
         session_start ();
 		// on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
-		$_SESSION['login'] = $_POST['login'];
-		$_SESSION['pwd'] = $_POST['pwd'];
+		$_SESSION['lastname'] = $_POST['login'];
+		$_SESSION['fristname'] = $_POST['pwd'];
         $_SESSION['mode'] = $value['typeSession'];
 		// on redirige notre visiteur vers une page de notre section membre
         header ('location:../../../?page=dashboard');

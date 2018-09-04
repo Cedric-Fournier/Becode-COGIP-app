@@ -39,9 +39,9 @@
       <li class="nav-item">
         <a class="nav-link" href="?page=bill">Facture</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item"> -->
         <a class="nav-link" href="assets/config/php/logout.php">Déconnection</a>
-      </li>
+      <!-- </li>
     </ul>
   </div> -->
 </nav>

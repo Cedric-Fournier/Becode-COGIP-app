@@ -31,7 +31,8 @@
         $bill=billFiveLatest();
         $company=companyFiveLatest();
         $person=personFiveLatest();
-        print_r($_SESSION);
+        if($_SESSION['mode']=='admin'){}else if($_SESSION['mode']=='modo'){}else{}
+        echo ("Bonjour ".$_SESSION['lastname']." ".$_SESSION['fristname']."\n");
         require "views/dashboard.view.php";
     }
 
