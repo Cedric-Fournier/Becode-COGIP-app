@@ -7,7 +7,7 @@
         $db_config['DB_NAME']	= 'COGIPapp';
         $db_config['CHARSET'] = 'utf8';
         $db_config['USER']	= 'root';
-        $db_config['PASSWORD']	= 'root'; // CHANGER VOTRE MDP ICI
+        $db_config['PASSWORD']	= ''; // CHANGER VOTRE MDP ICI
         $db_config['OPTIONS']	= array(
             // Activation des exceptions PDO :
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
