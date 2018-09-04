@@ -6,7 +6,7 @@
 - **By who ?** : 
 - [Cédric Fournier](https://github.com/Cedric-Fournier)
 - [Adrien d'Oreye](https://github.com/adridor)
-- [Stéphan WWilfort](htps://github.com/wilfort)
+- [Stéphan Wilfort](https://github.com/wilfort)
 - **The Website** : https://adridor.000webhostapp.com/
 
 ## Demande client : 
