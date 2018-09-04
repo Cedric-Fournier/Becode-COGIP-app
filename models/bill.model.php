@@ -170,7 +170,8 @@
 
     $requestSQL=
       "SELECT bill.*,company.name,person.lastname, person.firstname
-      FROM bill,company,person WHERE bill.number=:number
+      FROM bill,company,person
+      WHERE bill.number=:number
       AND bill.company=company.id
       AND bill.person=person.id";
       $requete = $pdo->prepare($requestSQL);

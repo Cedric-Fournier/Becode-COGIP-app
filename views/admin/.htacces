@@ -1,0 +1,4 @@
+AuthName "Page d'administration protégée"
+AuthType Basic
+AuthUserFile "/var/www/html/COGIP-app/views/admin/.htpasswd"
+Require valid-user
