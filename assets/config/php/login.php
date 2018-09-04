@@ -16,22 +16,21 @@ if (isset($_POST['login'])==true && isset($_POST['pwd'])==true) {
 		$_SESSION['pwd'] = $_POST['pwd'];
         $_SESSION['mode'] = $value['typeSession'];
 		// on redirige notre visiteur vers une page de notre section membre
-        header ('location: http://localhost/COGIP-app/?page=dashboard');
+        header ('location:../../../?page=dashboard');
         exit();
         }
         else{$errorConnect++;}
     }
-	
+
 	if($errorConnect==count($connection)){
 		// Le visiteur n'a pas été reconnu comme étant membre de notre site. On utilise alors un petit javascript lui signalant ce fait
 		echo '<body onLoad="alert(\'Membre non reconnu...\')">';
 		// puis on le redirige vers la page d'accueil
-		echo '<meta http-equiv="refresh" content="0;URL="index.htm>';
+		echo '<meta http-equiv="refresh" content="0;URL="index.html>';
 	}
 }
 else {
-    echo 'Les variables du formulaire ne sont pas déclarées.';
-    header ('location: http://localhost/COGIP-app/');
+    header ('location:../../../?page=login');
         exit();
 }
 

@@ -26,11 +26,11 @@ switch ($_GET["page"]) {
         require "controller/controller.php";
         billAddPage();
         break;
-    case 'billUpdate'://avec second paramet 'number'
+    case 'billUpdate':
         require "controller/controller.php";
         billUpdatePage();
         break;
-    case 'billDelete'://avec second paramet 'number'
+    case 'billDelete':
         require "controller/controller.php";
         billDeletePage();
         break;
