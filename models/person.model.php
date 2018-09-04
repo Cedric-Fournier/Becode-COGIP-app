@@ -167,7 +167,6 @@
             $reponse->closeCursor();
 
             return $reponse;
-
         }
     }
 

@@ -1,5 +1,13 @@
 <?php
 
+  function inputFilter($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+
+    return $data;
+  }
+
   function lireBill() {
     require "assets/config/php/config.php";
     $requestSQL=
@@ -37,20 +45,40 @@
 
     $message="";
     if(isset($_POST['creer'])){
-        $requestSQL=
-          "INSERT INTO bill (date, object, company, person)
-           VALUES ( :date, :object, :company, :person);";
 
-        $requete = $pdo->prepare($requestSQL);
+      $date = inputFilter($_POST["date"]);
+      $object = inputFilter($_POST["object"]);
+      $phone = inputFilter($_POST["phone"]);
+      $company = inputFilter($_POST["company"]);
+      $person = inputFilter($_POST["person"]);
 
-        $requete->bindParam(":date", $_POST['date']);
-        $requete->bindParam(":object", $_POST['object']);
-        $requete->bindParam(":company", $_POST['company']);
-        $requete->bindParam(":person", $_POST['person']);
+      if (filter_var($date, FILTER_SANITIZE_STRING)) {
+        $date_valid = $date;
+      }
+      if (filter_var($object, FILTER_SANITIZE_STRING)) {
+          $object_valid = $object;
+      }
+      if (filter_var($company, FILTER_SANITIZE_NUMBER_INT)) {
+          $company_valid = $company;
+      }
+      if (filter_var($person, FILTER_SANITIZE_NUMBER_INT)) {
+          $person_valid = $person;
+      }
 
-        $requete->execute();
-        $message="La Facture a été ajoutée avec succès.";
-        $requete->closeCursor();
+      $requestSQL=
+        "INSERT INTO bill (date, object, company, person)
+          VALUES ( :date, :object, :company, :person);";
+
+      $requete = $pdo->prepare($requestSQL);
+
+      $requete->bindParam(":date", $date_valid);
+      $requete->bindParam(":object", $object_valid);
+      $requete->bindParam(":company", $company_valid);
+      $requete->bindParam(":person", $person_valid);
+
+      $requete->execute();
+      $message="La Facture a été ajoutée avec succès.";
+      $requete->closeCursor();
     }
     return $message;
   }
@@ -90,77 +118,94 @@
 
 
   function billUpdate(){
-      $data=array();
-      $message="";
-      $data=array();
-      require "assets/config/php/config.php";
-      if(isset($_POST['modifier']))
-      {
-          $number=$_GET['number'];
-          $requestSQL=
-            "UPDATE bill
-            SET date=:date, object=:object, company=:company, person=:person
-            WHERE number = $number";
+    $data=array();
+    $message="";
+    $data=array();
+    require "assets/config/php/config.php";
+    if(isset($_POST['modifier'])) {
+      $number=$_GET['number'];
 
-          $requete = $pdo->prepare($requestSQL);
+      $date = inputFilter($_POST["date"]);
+      $object = inputFilter($_POST["object"]);
+      $phone = inputFilter($_POST["phone"]);
+      $company = inputFilter($_POST["company"]);
+      $person = inputFilter($_POST["person"]);
 
-          $requete->bindParam(":date", $_POST['date']);
-          $requete->bindParam(":object", $_POST['object']);
-          $requete->bindParam(":company", $_POST['company']);
-          $requete->bindParam(":person", $_POST['person']);
-
-          $requete->execute();
-          $requete->closeCursor();
-          $message="Vous avez modifié la facture";
-      }else {
-          $number=$_GET['number']; //variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
+      if (filter_var($date, FILTER_SANITIZE_STRING)) {
+        $date_valid = $date;
       }
-      $selectCompany=array();
-      $selectPerson=array();
-          $requestSQL=
-            "SELECT bill.*
-            FROM bill
-            WHERE number = $number";
+      if (filter_var($object, FILTER_SANITIZE_STRING)) {
+          $object_valid = $object;
+      }
+      if (filter_var($company, FILTER_SANITIZE_NUMBER_INT)) {
+          $company_valid = $company;
+      }
+      if (filter_var($person, FILTER_SANITIZE_NUMBER_INT)) {
+          $person_valid = $person;
+      }
 
-          $requete = $pdo->prepare($requestSQL);
+      $requestSQL=
+        "UPDATE bill
+        SET date=:date, object=:object, company=:company, person=:person
+        WHERE number = $number";
 
-          $requete->execute();
+      $requete = $pdo->prepare($requestSQL);
 
-          $bill = $requete->fetch();
-          $requete->closeCursor();
+      $requete->bindParam(":date", $date_valid);
+      $requete->bindParam(":object", $object_valid);
+      $requete->bindParam(":company", $company_valid);
+      $requete->bindParam(":person", $person_valid);
 
-          $data['0']=$bill;
-          $dataBill=typeDataBill();
+      $requete->execute();
+      $requete->closeCursor();
+      $message="Vous avez modifié la facture";
+    }else {
+      $number=$_GET['number']; //variable de defaut pour le test remplacer par la variable qu'on va recuperer plutart
+    }
+    $selectCompany=array();
+    $selectPerson=array();
+    $requestSQL=
+      "SELECT bill.*
+      FROM bill
+      WHERE number = $number";
 
-          foreach ($dataBill['0'] as $key => $value) {
-            if($value['id']==$bill['company']) {
-              $selectCompany[$value['id']]="selected";
-            }
-            else {
-              $selectCompany[$value['id']]="";
-            }
-          }
+    $requete = $pdo->prepare($requestSQL);
 
-          $data['1']=$dataBill['0'];
+    $requete->execute();
 
-          foreach ($dataBill['1'] as $key => $value) {
-            if($value['id']==$bill['person']) {
-              $selectPerson[$value['id']]="selected";
-            }
-            else {
-              $selectPerson[$value['id']]="";
-            }
-          }
+    $bill = $requete->fetch();
+    $requete->closeCursor();
 
-          $data['2']=$dataBill['1'];
-          $data['3']=$selectCompany;
-          $data['4']=$selectPerson;
-          $data['5']=$message;
+    $data['0']=$bill;
+    $dataBill=typeDataBill();
 
-          return $data;
-       }
+    foreach ($dataBill['0'] as $key => $value) {
+      if($value['id']==$bill['company']) {
+        $selectCompany[$value['id']]="selected";
+      }
+      else {
+        $selectCompany[$value['id']]="";
+      }
+    }
 
+    $data['1']=$dataBill['0'];
 
+    foreach ($dataBill['1'] as $key => $value) {
+      if($value['id']==$bill['person']) {
+        $selectPerson[$value['id']]="selected";
+      }
+      else {
+        $selectPerson[$value['id']]="";
+      }
+    }
+
+    $data['2']=$dataBill['1'];
+    $data['3']=$selectCompany;
+    $data['4']=$selectPerson;
+    $data['5']=$message;
+
+    return $data;
+  }
 
 
   function detailBill() {
@@ -184,6 +229,5 @@
 
     return $detailBill;
   }
-
 
 ?>
