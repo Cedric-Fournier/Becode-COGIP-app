@@ -3,8 +3,7 @@
   function lireBill() {
     require "assets/config/php/config.php";
     $requestSQL=
-      "SELECT * FROM bill
-      ORDER BY date DESC";
+      "SELECT bill.*, CONCAT(person.firstname,' ',person.lastname) as person FROM bill, person where bill.person=person.id ORDER BY bill.date DESC";
 
     $requete = $pdo->prepare($requestSQL);
 

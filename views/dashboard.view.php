@@ -1,4 +1,5 @@
 <?php require 'views/partials/header.php'; ?>
+<section>
 <div class="model">
   <div class="buttonAdd">
     <span>
@@ -91,5 +92,5 @@
         </table>
     </div>
   </div>
-</div>
+</div></section>
 <?php require 'views/partials/footer.php'; ?>
