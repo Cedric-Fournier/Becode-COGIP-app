@@ -153,7 +153,7 @@
 
       if(isset($_POST['modifier']))
       {
-          $id=$_POST['id'];
+          $id=$_GET['id'];
           $requestSQL=
             "UPDATE company
             SET name=:name, street=:street, number=:number, zip=:zip, city=:city, country=:country, VAT=:VAT, phone=:phone, type=:type

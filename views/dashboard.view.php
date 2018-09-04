@@ -33,8 +33,8 @@
             </td>
             <td><?= $value['phone']?></td>
             <td><?= $value['type']?></td>
-            <td <?=$editDelet?>><a href="?page=admin&admin=updatecompany&id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></td>
-            <td <?=$editDelet?>><a href="?page=admin&admin=deletecompany&id=<?=$value['id']?>"><i class="fas fa-trash"></i></a></td>
+            <td <?=$editDelet?>><a href="?page=admin&admin=updatecompany&id=<?=$value['nbr']?>"><i class="fas fa-edit"></i></a></td>
+            <td <?=$editDelet?>><a href="?page=admin&admin=deletecompany&id=<?=$value['nbr']?>"><i class="fas fa-trash"></i></a></td>
           </tr>
         <?php } ?>
       </table>  

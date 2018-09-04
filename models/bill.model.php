@@ -48,7 +48,6 @@
 
       $date = inputFilter($_POST["date"]);
       $object = inputFilter($_POST["object"]);
-      $phone = inputFilter($_POST["phone"]);
       $company = inputFilter($_POST["company"]);
       $person = inputFilter($_POST["person"]);
 

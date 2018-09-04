@@ -91,7 +91,7 @@
         require "models/person.model.php";
         $personUp = getUpdatePerson();
         $getPerson = getUpdateDetailPerson();
-        $getCompany = getCompanyName();
+        $message = getCompanyName();
         require "views/admin/updatePerson.view.php";
     }
 
@@ -124,7 +124,7 @@
     function deleteCompanyAdminPage() { //companyDeletePage
         require "models/company.model.php";
         $message=companyDelete($_GET['id']);
-        return $message;
+        require "views/admin/deleteaddCompany.view.php";
     }
 
     function addBillAdminPage() {
