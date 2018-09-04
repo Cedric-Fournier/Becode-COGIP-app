@@ -17,16 +17,6 @@
     return $bill;
   }
 
-  function deleteBill($number) {
-    require "assets/config/php/config.php";
-    $requestSQL="DELETE from bill where number = $number";
-    $requete = $pdo->prepare($requestSQL);
-    $requete->execute();
-    $requete->closeCursor();
-    $message='vous avez bien supprimé la facture';
-    return $message;
-  }
-
   function deleteBill($number){
     require "assets/config/php/config.php";
     $requestSQL=
@@ -99,7 +89,7 @@
     return $data;
   }
 
-  
+
   function billUpdate(){
       $data=array();
       $message="";
