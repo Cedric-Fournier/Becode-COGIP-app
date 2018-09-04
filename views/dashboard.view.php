@@ -21,7 +21,7 @@
         <caption>Liste des cinq dernières sociétés</caption>
         <tr>
           <th>nom</th>
-          <th>numéro de téléphone</th>
+          <th>téléphone</th>
           <th>type</th>
           <th colspan="2"></th>
         </tr>
@@ -58,7 +58,7 @@
             </td>
             <td><?= $value['name']?></td>
             <td><a href="?page=admin&admin=updatebill&number=<?=$value['number']?>"><i class="fas fa-edit"></i></a></td>
-            <td><a href="?page=admin&admin=deletebill&number=<?=$value['number']?>"><i class="fas fa-trash"></i></a></td>
+            <td><a href="?page=admin&admin=deletebill&number=<?=$value['number']?>" target="blank" meta="refresh"><i class="fas fa-trash"></i></a></td>
           </tr>
         <?php } ?>
       </table>
@@ -68,14 +68,15 @@
         <table border='1'>
           <caption>Liste des cinq dernières personnes</caption>
           <tr>
-            <th>nom prénom</th>
-            <th>numéro de téléphone</th>
+            <th>prénom nom</th>
+            <th>téléphone</th>
             <th>adresse e-mail</th>
             <th>société</th>
             <th colspan="2"></th>
           </tr>
           <?php foreach ($person as $key => $value) { ?>
             <tr>
+              <td><?=$value['id']?></td>
               <td>
                 <a href="?page=detailPerson&id=<?=$value['id']?>"><?= $value['firstname']?> <?= $value['lastname']?></a>
               </td>
@@ -83,7 +84,7 @@
               <td><?= $value['email']?></td>
               <td><?= $value['name']?></td>
               <td><a href="?page=admin&admin=updateperson&id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></td>
-              <td><a href="?page=admin&admin=deleteperson&id=<?=$value['id']?>"><i class="fas fa-trash"></i></a></td>
+              <td><a href="?page=admin&admin=deleteperson&id=<?=$value['id']?>" target="blank" meta="refresh"><i class="fas fa-trash"></i></a></td>
             </tr>
           <?php } ?>
         </table>
