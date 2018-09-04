@@ -42,7 +42,7 @@
         "SELECT person.*,company.name
         FROM person,company
         WHERE person.company=company.id
-        ORDER BY lastname DESC
+        ORDER BY person.id DESC
         LIMIT 5";
 
       $requete = $pdo->prepare($requestSQL);

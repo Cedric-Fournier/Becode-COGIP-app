@@ -193,19 +193,20 @@
     function getDeletePerson() {
         require "assets/config/php/config.php";
         $id = intval($_GET['id']);
+        print_r($id);
         $requestSQL =
             "DELETE FROM person
-            WHERE id=?;";
+            WHERE id=:id;";
 
         $reponse = $pdo->prepare($requestSQL);
 
-        $reponse->bindParam(1, $id, PDO::PARAM_INT);
+        $reponse->bindParam(":id", $id, PDO::PARAM_INT);
         $reponse->execute();
 
-        $donnees = $reponse->fetch();
         $reponse->closeCursor();
-        
-        return $donnees;
+        $message='vous avez bien supprimé la persone';
+
+      return $message;
     }
 
 ?>
